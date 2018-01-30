@@ -1,0 +1,37 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/campuscode04/workspace/qsd-projeto-final-produtos/app/models/periodicity.rb": [
+        1,
+        null
+      ],
+      "/Users/campuscode04/workspace/qsd-projeto-final-produtos/app/controllers/home_controller.rb": [
+        1,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/campuscode04/workspace/qsd-projeto-final-produtos/app/controllers/application_controller.rb": [
+        1,
+        1,
+        null
+      ],
+      "/Users/campuscode04/workspace/qsd-projeto-final-produtos/app/controllers/periodicities_controller.rb": [
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/campuscode04/workspace/qsd-projeto-final-produtos/app/mailers/application_mailer.rb": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "timestamp": 1517331126
+  }
+}
