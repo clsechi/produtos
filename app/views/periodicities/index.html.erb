@@ -1,4 +1,8 @@
+  <%=flash[:notice]%>
+
+
 <% @periodicities.each do |p| %>
-  <%= p.name %>
-  <%= p.period %>
+
+<span>Nome:<%= p.name %></span>
+<span>Período:<%= p.period %></span>
 <% end %>
