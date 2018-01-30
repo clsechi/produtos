@@ -1,26 +1,30 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/campuscode04/workspace/qsd-projeto-final-produtos/app/models/periodicity.rb": [
+      "/Users/campuscode01/workspace/produtos/app/models/periodicity.rb": [
         1,
         null
       ],
-      "/Users/campuscode04/workspace/qsd-projeto-final-produtos/app/models/product_category.rb": [
+      "/Users/campuscode01/workspace/produtos/app/models/product_category.rb": [
         1,
         null
       ],
-      "/Users/campuscode04/workspace/qsd-projeto-final-produtos/app/controllers/home_controller.rb": [
+      "/Users/campuscode01/workspace/produtos/app/models/product.rb": [
+        1,
+        null
+      ],
+      "/Users/campuscode01/workspace/produtos/app/controllers/home_controller.rb": [
         1,
         1,
         null,
         null
       ],
-      "/Users/campuscode04/workspace/qsd-projeto-final-produtos/app/controllers/application_controller.rb": [
+      "/Users/campuscode01/workspace/produtos/app/controllers/application_controller.rb": [
         1,
         1,
         null
       ],
-      "/Users/campuscode04/workspace/qsd-projeto-final-produtos/app/controllers/periodicities_controller.rb": [
+      "/Users/campuscode01/workspace/produtos/app/controllers/periodicities_controller.rb": [
         1,
         1,
         3,
@@ -31,7 +35,7 @@
         null,
         null
       ],
-      "/Users/campuscode04/workspace/qsd-projeto-final-produtos/app/controllers/product_categories_controller.rb": [
+      "/Users/campuscode01/workspace/produtos/app/controllers/product_categories_controller.rb": [
         1,
         1,
         3,
@@ -39,10 +43,17 @@
         1,
         1,
         null,
+        null,
+        null
+      ],
+      "/Users/campuscode01/workspace/produtos/app/controllers/products_controller.rb": [
+        1,
+        1,
+        1,
         null,
         null
       ]
     },
-    "timestamp": 1517339213
+    "timestamp": 1517342109
   }
 }
