@@ -1,0 +1,35 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/campuscode01/workspace/produtos/app/models/product_category.rb": [
+        1,
+        null
+      ],
+      "/Users/campuscode01/workspace/produtos/app/controllers/home_controller.rb": [
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/campuscode01/workspace/produtos/app/controllers/application_controller.rb": [
+        1,
+        1,
+        null
+      ],
+      "/Users/campuscode01/workspace/produtos/app/controllers/product_categories_controller.rb": [
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/campuscode01/workspace/produtos/app/mailers/application_mailer.rb": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "timestamp": 1517330876
+  }
+}
