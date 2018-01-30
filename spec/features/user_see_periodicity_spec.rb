@@ -2,8 +2,7 @@ require 'rails_helper'
 
 feature 'User can see peridocity' do
   scenario 'sucessfuly' do
-
-    periodicity = Periodicity.create(name: 'Mensal' , period: 1)
+    periodicity = Periodicity.create(name: 'Mensal', period: 1)
 
     visit root_path
     click_on('Periodicidade')
@@ -18,9 +17,8 @@ feature 'User can see peridocity' do
   end
 
   scenario 'and see two periodicity' do
-
-    first_periodicity = Periodicity.create(name: 'Mensal' , period: 1)
-    second_periodicity = Periodicity.create(name: 'Trimestral' , period: 3)
+    first_periodicity = Periodicity.create(name: 'Mensal', period: 1)
+    second_periodicity = Periodicity.create(name: 'Trimestral', period: 3)
 
     visit periodicities_path
 
@@ -28,7 +26,5 @@ feature 'User can see peridocity' do
     expect(page).to have_content(first_periodicity.period)
     expect(page).to have_content(second_periodicity.name)
     expect(page).to have_content(second_periodicity.period)
-
   end
-
 end
