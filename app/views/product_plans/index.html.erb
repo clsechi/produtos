@@ -1,5 +1,6 @@
 <%= flash[:notice] %>
 <% @plans.each do |plan| %>
-  <%= plan.product %>
+  <%= plan.product.name %>
+  <%= plan.product.product_category.name %>
   <%= plan.duration %>
 <% end %>
