@@ -1,0 +1,2 @@
+class ProductsController < ApiController
+end

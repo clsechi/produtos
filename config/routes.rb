@@ -4,4 +4,8 @@ Rails.application.routes.draw do
   resources :product_categories, only:[:index]
   resources :product_plans, only:[:index]
   resources :products, only:[:index]
+
+  namespace :api do
+    resources :products, only:[:index]
+  end
 end
