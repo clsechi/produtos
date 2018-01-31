@@ -1,8 +1,6 @@
 class ProductCategoriesController < ApplicationController
   def index
     @categories = ProductCategory.all
-    if @categories.empty?
-      flash.now[:notice] = 'Não há categorias cadastradas!'
-    end
+    flash.now[:notice] = 'Não há categorias cadastradas!' if @categories.empty?
   end
 end
