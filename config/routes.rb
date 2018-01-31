@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   resources :periodicities, only: [:index]
   resources :product_categories, only:[:index]
   resources :product_plans, only:[:index]
-
+  resources :products, only:[:index]
 end
