@@ -23,9 +23,7 @@ ActiveRecord::Schema.define(version: 20180131180936) do
     t.integer "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "plan_id"
     t.integer "product_plan_id"
-    t.index ["plan_id"], name: "index_plan_prices_on_plan_id"
     t.index ["product_plan_id"], name: "index_plan_prices_on_product_plan_id"
   end
 
@@ -37,10 +35,11 @@ ActiveRecord::Schema.define(version: 20180131180936) do
   end
 
   create_table "product_plans", force: :cascade do |t|
-    t.string "product"
     t.integer "duration"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "product_id"
+    t.index ["product_id"], name: "index_product_plans_on_product_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -49,6 +48,8 @@ ActiveRecord::Schema.define(version: 20180131180936) do
     t.string "product_key"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "product_category_id"
+    t.index ["product_category_id"], name: "index_products_on_product_category_id"
   end
 
 end
