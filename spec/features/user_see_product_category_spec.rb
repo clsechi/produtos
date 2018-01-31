@@ -11,9 +11,10 @@ feature 'product_category' do
 
     expect(page).to have_content(product_category.name)
     expect(page).to have_content(product_category.description)
+    expect(page).not_to have_content('Não há categorias cadastradas!')
   end
 
-  scenario 'show error message when dont hanve category' do
+  scenario 'show error message when dont have category' do
     visit root_path
     click_on('Categoria')
 
