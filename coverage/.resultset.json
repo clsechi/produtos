@@ -9,6 +9,10 @@
         1,
         null
       ],
+      "/Users/campuscode04/workspace/qsd-projeto-final-produtos/app/models/product_plan.rb": [
+        1,
+        null
+      ],
       "/Users/campuscode04/workspace/qsd-projeto-final-produtos/app/controllers/home_controller.rb": [
         1,
         1,
@@ -31,6 +35,13 @@
         null,
         null
       ],
+      "/Users/campuscode04/workspace/qsd-projeto-final-produtos/app/controllers/product_plans_controller.rb": [
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
       "/Users/campuscode04/workspace/qsd-projeto-final-produtos/app/controllers/product_categories_controller.rb": [
         1,
         1,
@@ -43,6 +54,6 @@
         null
       ]
     },
-    "timestamp": 1517339213
+    "timestamp": 1517413541
   }
 }
