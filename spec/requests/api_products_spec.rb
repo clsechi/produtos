@@ -16,5 +16,10 @@ describe 'Products - ', type: :request do
       expect(data[0]['product_key']).to eq(product.product_key)
       expect(data[0]['product_category_id']).to eq(product.product_category.id)
     end
+    it 'response 404 to empty product' do
+      get api_products_path
+
+      expect(response.status).to eq 404
+    end
   end
 end
