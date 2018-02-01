@@ -1,6 +1,6 @@
 class ProductPlansController < ApplicationController
   def index
-    @plans = ProductPlan.all
-    flash[:notice] = 'Não existe nenhum plano cadastrado' if @plans.empty?
+    @prices = PlanPrice.all
+    flash[:notice] = 'Não existe nenhum plano cadastrado' if @prices.empty?
   end
 end
