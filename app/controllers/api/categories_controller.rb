@@ -2,7 +2,11 @@ module Api
   class CategoriesController < ApplicationController
     def index
       @categories = ProductCategory.all
-      render json: @categories
+      if @categories.empty?
+        render json: { message: 'Nenhuma categoria encontrada', status: :ok }
+      else
+        render json: @categories, status: :ok
+      end
     end
   end
 end
