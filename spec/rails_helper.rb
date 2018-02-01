@@ -14,6 +14,7 @@ SimpleCov.start 'rails' do
   add_filter '/app/assets/'
   add_filter '/app/models/application_record.rb'
   add_filter '/app/mailers/application_mailer.rb'
+  add_filter '/app/controllers/api/api_controller.rb'
 end
 # Add additional requires below this line. Rails is not loaded until this point!
 
