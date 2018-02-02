@@ -15,10 +15,12 @@ describe 'Plan - ', type: :request do
       expect(data[0]['duration']).to eq(plan.duration)
       expect(data[0]['product_id']).to eq(plan.product_id)
     end
-    it 'response 404 to empty product plans' do
+    it 'response 200 and a message to empty product plans' do
       get api_product_plans_path
+      data = JSON.parse(response.body)
 
-      expect(response.status).to eq 404
+      expect(data['message']).to eq 'Nenhum plano encontrado'
+      expect(response.status).to eq 200
     end
     it 'show two product plans' do
       category = create(:product_category)

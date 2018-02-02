@@ -3,7 +3,7 @@ module Api
     def index
       products = Product.all
       if products.empty?
-        render json: products, status: 404
+        render json: { message: 'Nenhum produto encontrado', status: :ok }
       else
         render json: products
       end

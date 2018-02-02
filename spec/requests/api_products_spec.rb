@@ -16,10 +16,12 @@ describe 'Products - ', type: :request do
       expect(data[0]['product_key']).to eq(product.product_key)
       expect(data[0]['product_category_id']).to eq(product.product_category.id)
     end
-    it 'response 404 to empty product' do
+    it 'response 200 and message to empty product' do
       get api_products_path
+      data = JSON.parse(response.body)
 
-      expect(response.status).to eq 404
+      expect(data['message']).to eq 'Nenhum produto encontrado'
+      expect(response.status).to eq 200
     end
     it 'show two products' do
       category = create(:product_category)

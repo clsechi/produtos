@@ -1,11 +1,11 @@
 module Api
   class ProductPlansController < ApplicationController
     def index
-      product_plan = ProductPlan.all
-      if product_plan.empty?
-        render json: product_plan, status: 404
+      product_plans = ProductPlan.all
+      if product_plans.empty?
+        render json: { message: 'Nenhum plano encontrado', status: :ok }
       else
-        render json: product_plan
+        render json: product_plans
       end
     end
   end
