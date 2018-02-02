@@ -10,7 +10,7 @@ module Api
     end
 
     def price
-      price = PlanPrice.find_by(id: params[:id])
+      price = PlanPrice.where(product_plan_id: params[:id])
       render json: price
     end
   end
