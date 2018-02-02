@@ -5,7 +5,9 @@ feature 'user can see plans' do
     category = create(:product_category)
     product = create(:product, product_category: category)
     plan = ProductPlan.create(product: product, duration: 3)
-    price = PlanPrice.create(product_plan: plan, value: 10)
+    periodicity = Periodicity.create(name: 'Mensal', period: 1)
+    price = PlanPrice.create(product_plan: plan, value: 10,
+                             periodicity: periodicity)
 
     visit product_plans_path
 
@@ -26,8 +28,12 @@ feature 'user can see plans' do
     product = create(:product, product_category: category)
     plan = ProductPlan.create(product: product, duration: 3)
     another_plan = ProductPlan.create(product: product, duration: 12)
-    price = PlanPrice.create(product_plan: plan, value: 10)
-    another_price = PlanPrice.create(product_plan: another_plan, value: 5)
+    periodicity = Periodicity.create(name: 'Mensal', period: 1)
+    another_periodicity = Periodicity.create(name: 'Anual', period: 12)
+    price = PlanPrice.create(product_plan: plan, value: 10,
+                             periodicity: periodicity)
+    another_price = PlanPrice.create(product_plan: another_plan, value: 5,
+                                     periodicity: another_periodicity)
 
     visit product_plans_path
 
@@ -42,7 +48,9 @@ feature 'user can see plans' do
     category = create(:product_category)
     product = create(:product, product_category: category)
     plan = ProductPlan.create(product: product, duration: 3)
-    price = PlanPrice.create(product_plan: plan, value: 10)
+    periodicity = Periodicity.create(name: 'Mensal', period: 1)
+    price = PlanPrice.create(product_plan: plan, value: 10,
+                             periodicity: periodicity)
 
     visit product_plans_path
 

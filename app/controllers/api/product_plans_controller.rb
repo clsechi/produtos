@@ -8,5 +8,10 @@ module Api
         render json: product_plan
       end
     end
+
+    def price
+      price = PlanPrice.find_by(id: params[:id])
+      render json: price
+    end
   end
 end
