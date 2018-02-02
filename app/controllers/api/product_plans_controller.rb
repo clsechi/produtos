@@ -11,7 +11,11 @@ module Api
 
     def price
       price = PlanPrice.where(product_plan_id: params[:id])
-      render json: price
+      if price.empty?
+        render json: price, status: 404
+      else
+        render json: price
+      end
     end
   end
 end
