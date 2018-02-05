@@ -21,3 +21,5 @@ AllCops:
   UseCache: false
 Metrics/BlockLength:
   ExcludedMethods: ['describe', 'context', 'feature', 'scenario', 'let']
+Style/EmptyMethod:
+  EnforcedStyle: expanded
