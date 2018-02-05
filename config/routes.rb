@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   namespace :api do
     resources :categories, only:[:index]
     resources :products, only:[:index]
-    resources :product_plans, only:[:index]
+    resources :product_plans, only:[:index, :show]
     resources :periodicities, only:[:index]
   end
 end
