@@ -3,8 +3,8 @@ module Api
     def index
       periodicities = Periodicity.all
       if periodicities.empty?
-        render json: { message: 'Nenhuma periodicidade encontrada',
-                       status: :ok }
+        render json: { message: 'Nenhuma periodicidade encontrada' },
+               status: :not_found
       else
         render json: periodicities
       end

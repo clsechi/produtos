@@ -21,7 +21,7 @@ describe 'Products - ', type: :request do
       data = JSON.parse(response.body)
 
       expect(data['message']).to eq 'Nenhum produto encontrado'
-      expect(response.status).to eq 200
+      expect(response.status).to eq 404
     end
     it 'show two products' do
       category = create(:product_category)
@@ -35,6 +35,7 @@ describe 'Products - ', type: :request do
       expect(response.status).to eq 200
       expect(data[0]['id']).to eq(product.id)
       expect(data[0]['name']).to eq(product.name)
+
       expect(data[1]['id']).to eq(product2.id)
       expect(data[1]['name']).to eq(product2.name)
     end

@@ -18,7 +18,7 @@ describe 'Periodicities - ', type: :request do
       data = JSON.parse(response.body)
 
       expect(data['message']).to eq 'Nenhuma periodicidade encontrada'
-      expect(response.status).to eq 200
+      expect(response.status).to eq 404
     end
     it 'show two periodicity' do
       periodicity = create(:periodicity)
@@ -31,6 +31,7 @@ describe 'Periodicities - ', type: :request do
       expect(data[0]['id']).to eq(periodicity.id)
       expect(data[0]['name']).to eq(periodicity.name)
       expect(data[0]['period']).to eq(periodicity.period)
+
       expect(data[1]['id']).to eq(periodicity2.id)
       expect(data[1]['name']).to eq(periodicity2.name)
       expect(data[1]['period']).to eq(periodicity2.period)
