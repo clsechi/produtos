@@ -10,23 +10,16 @@ module Api
     end
 
     def show
-    product_plan = ProductPlan.find(params[:id])
-    if product_plan.nil?
-      render json: { message: 'Nenhum plano encontrado', status: :not_found }
-    else
-      #(Duracao, id_produto)
-      product = Product.find_by(id: product_plan.product_id)
-      #(nome, descircao, chave, id_categoria)
-      category = ProductCategory.find_by(id: product.product_category_id)
-      #(nome, descricao)
-      #price = PlanPrice.find_by(product_plan_id, plan_id)
+      product_plan = ProductPlan.find_by(id: params[:id])
+      if product_plan.nil?
+        render json: { message: 'Nenhum plano encontrado' }, status: 404
+      else
+        product = Product.find_by(id: product_plan.product_id)
+        category = ProductCategory.find_by(id: product.product_category_id)
+        abc = []
+        abc << product_plan << product << category
 
-      abc = []
-      abc << product_plan << product << category
-      #abc = product_plan + product + category + price
-      #merge
-
-      render json: abc
+        render json: abc
       end
     end
   end

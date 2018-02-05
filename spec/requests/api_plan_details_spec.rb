@@ -16,7 +16,6 @@ describe 'Details Plan - ', type: :request do
       expect(data[0]['product_id']).to eq(plan.product_id)
     end
     it 'response 404 to empty product plans' do
-      pending
       get api_product_plan_path(100)
 
       data = JSON.parse(response.body)
@@ -25,19 +24,15 @@ describe 'Details Plan - ', type: :request do
       expect(data['message']).to eq 'Nenhum plano encontrado'
     end
     it 'response 404 to empty product plans' do
-      pending
       category = create(:product_category)
       product = create(:product, product_category: category)
-      plan = create(:product_plan, product: product)
+      create(:product_plan, product: product)
 
-      get api_product_plan_path(100)
+      get api_product_plan_path(5)
       data = JSON.parse(response.body)
 
       expect(response.status).to eq 404
       expect(data['message']).to eq 'Nenhum plano encontrado'
-      expect(data[0]['id']).not_to eq(plan.id)
-      expect(data[0]['duration']).not_to eq(plan.duration)
-      expect(data[0]['product_id']).not_to eq(plan.product_id)
     end
   end
 end
