@@ -9,5 +9,6 @@ Rails.application.routes.draw do
     resources :categories, only:[:index]
     resources :products, only:[:index]
     resources :product_plans, only:[:index]
+    resources :periodicities, only:[:index]
   end
 end
