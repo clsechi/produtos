@@ -1,4 +1,4 @@
 class Product < ApplicationRecord
   belongs_to :product_category
-  has_many :product_plans
+  has_many :product_plans, dependent: :destroy
 end

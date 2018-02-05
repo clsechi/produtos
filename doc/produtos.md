@@ -102,5 +102,4 @@ O acesso a aplicação poderá ser feito por usuários previamente cadastrados. 
 
 ### Interfaces
 
-O sistema terá toda sua interface regida pelas regras descritas na documentação do Locaweb Style (LocaStyle). 
-
+O sistema terá toda sua interface regida pelas regras descritas na documentação do Locaweb Style (LocaStyle).
