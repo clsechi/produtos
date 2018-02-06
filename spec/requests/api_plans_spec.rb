@@ -15,9 +15,11 @@ describe 'Plan - ', type: :request do
       expect(data[0]['duration']).to eq(plan.duration)
       expect(data[0]['product_id']).to eq(plan.product_id)
     end
-    it 'response 404 to empty product plans' do
+    it 'response 200 and a message to empty product plans' do
       get api_product_plans_path
+      data = JSON.parse(response.body)
 
+      expect(data['message']).to eq 'Nenhum plano encontrado'
       expect(response.status).to eq 404
     end
     it 'show two product plans' do
@@ -35,6 +37,7 @@ describe 'Plan - ', type: :request do
       expect(data[0]['id']).to eq(plan.id)
       expect(data[0]['duration']).to eq(plan.duration)
       expect(data[0]['product_id']).to eq(plan.product_id)
+
       expect(data[1]['id']).to eq(plan2.id)
       expect(data[1]['duration']).to eq(plan2.duration)
       expect(data[1]['product_id']).to eq(plan2.product_id)

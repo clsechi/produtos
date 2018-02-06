@@ -11,8 +11,19 @@ feature 'user can sign in' do
 
     click_on 'Entrar'
 
-    expect(page).to have_content('Logado com sucesso no sistema')
     expect(page).to have_content('Sair')
-    epxect(current_path).to root_path
+    expect(current_path).to eq root_path
+  end
+  scenario 'and could be register' do
+    user = build(:user)
+    visit new_user_registration_path
+
+    fill_in 'Email', with: user.email
+    fill_in 'Senha', with: user.password
+    fill_in 'Confirmar senha', with: user.password
+    click_on 'Registrar'
+
+    expect(page).to have_content('Sair')
+    expect(current_path).to eq root_path
   end
 end

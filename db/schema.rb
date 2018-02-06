@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 20180205183435) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "product_plan_id"
+    t.integer "periodicity_id"
+    t.index ["periodicity_id"], name: "index_plan_prices_on_periodicity_id"
     t.index ["product_plan_id"], name: "index_plan_prices_on_product_plan_id"
   end
 

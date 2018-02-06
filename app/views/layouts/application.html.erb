@@ -9,6 +9,9 @@
   </head>
 
   <body>
+    <% if user_signed_in? %>
+    <%= link_to 'Sair' , destroy_user_session_path %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
