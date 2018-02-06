@@ -34,7 +34,7 @@ feature 'User register product' do
     expect(page).to have_content('Campos inválidos. Não pode ser nulo!')
   end
   scenario 'see come back link in show' do
-    ProductCategory.create(name: 'Hospedagem', description:
+    category = ProductCategory.create(name: 'Hospedagem', description:
                            'Hospedagem ilimitada')
     product = create(:product, product_category: category)
 
