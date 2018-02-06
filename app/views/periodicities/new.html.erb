@@ -1,0 +1,13 @@
+<%= form_for @periodicity do |f| %>
+  <div>
+    <%= f.label :name, 'Nome' %>
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <%= f.label :period, 'Período' %>
+    <%= f.number_field :period %>
+  </div>
+  <div>
+    <%= f.submit 'Enviar' %>
+  </div>
+<% end %>
