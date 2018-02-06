@@ -1,0 +1,7 @@
+Produto: <%= @product.name %> <br>
+Descrição: <%= @product.description %>
+Categoria: <%= @product.product_category.name %>
+Chave do produto: <%= @product.product_key %>
+Contrato: <%= @product.contract %>
+
+<%= link_to 'Voltar', products_path %>
