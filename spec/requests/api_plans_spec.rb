@@ -20,7 +20,7 @@ describe 'Plan - ', type: :request do
       data = JSON.parse(response.body)
 
       expect(data['message']).to eq 'Nenhum plano encontrado'
-      expect(response.status).to eq 200
+      expect(response.status).to eq 404
     end
     it 'show two product plans' do
       category = create(:product_category)

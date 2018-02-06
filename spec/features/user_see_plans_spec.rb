@@ -4,8 +4,10 @@ feature 'user can see plans' do
   scenario 'sucessfuly' do
     category = create(:product_category)
     product = create(:product, product_category: category)
-    plan = ProductPlan.create(product: product, duration: 3)
-    price = PlanPrice.create(product_plan: plan, value: 10)
+    plan = create(:product_plan, product: product, duration: 3)
+    periodicity = create(:periodicity, name: 'Mensal', period: 1)
+    price = create(:plan_price, product_plan: plan, value: 10,
+                                periodicity: periodicity)
 
     visit product_plans_path
 
@@ -24,10 +26,14 @@ feature 'user can see plans' do
   scenario 'and see two plans' do
     category = create(:product_category)
     product = create(:product, product_category: category)
-    plan = ProductPlan.create(product: product, duration: 3)
-    another_plan = ProductPlan.create(product: product, duration: 12)
-    price = PlanPrice.create(product_plan: plan, value: 10)
-    another_price = PlanPrice.create(product_plan: another_plan, value: 5)
+    plan = create(:product_plan, product: product, duration: 3)
+    another_plan = create(:product_plan, product: product, duration: 12)
+    periodicity = create(:periodicity, name: 'Mensal', period: 1)
+    another_periodicity = create(:periodicity, name: 'Anual', period: 12)
+    price = create(:plan_price, product_plan: plan, value: 10,
+                                periodicity: periodicity)
+    another_price = create(:plan_price, product_plan: another_plan, value: 5,
+                                        periodicity: another_periodicity)
 
     visit product_plans_path
 
@@ -41,8 +47,10 @@ feature 'user can see plans' do
   scenario 'and see plan price' do
     category = create(:product_category)
     product = create(:product, product_category: category)
-    plan = ProductPlan.create(product: product, duration: 3)
-    price = PlanPrice.create(product_plan: plan, value: 10)
+    plan = create(:product_plan, product: product, duration: 3)
+    periodicity = create(:periodicity, name: 'Mensal', period: 1)
+    price = create(:plan_price, product_plan: plan, value: 10,
+                                periodicity: periodicity)
 
     visit product_plans_path
 

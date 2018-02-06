@@ -2,9 +2,9 @@ require 'rails_helper'
 
 feature 'product_category' do
   scenario 'success' do
-    product_category = ProductCategory.create(name: 'Hospedagem',
-                                              description: 'Domínio grátis e
-                                              sites ilimitados')
+    product_category = create(:product_category,
+                              name: 'Hospedagem',
+                              description: 'Domínio grátis e sites ilimitados')
 
     visit root_path
     click_on('Categoria')
@@ -21,12 +21,12 @@ feature 'product_category' do
   end
 
   scenario 'show two categories' do
-    product_category = ProductCategory.create(name: 'Hospedagem',
-                                              description: 'Domínio grátis e
-                                             sites ilimitados')
-    other_product_category = ProductCategory.create(name: 'Email',
-                                                    description: 'Contas
-                                                    ilimitadas')
+    product_category = create(:product_category,
+                              name: 'Hospedagem',
+                              description: 'Domínio grátis e sites ilimitados')
+    other_product_category = create(:product_category, name: 'Email',
+                                                       description: 'Contas
+                                                       ilimitadas')
 
     visit root_path
     click_on('Categoria')
