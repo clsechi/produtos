@@ -24,8 +24,7 @@ describe 'Category API', type: :request do
 
     get api_categories_path
     data = JSON.parse(response.body)
-    pp(data)
-    
+
     expect(response.status).to eq 200
     expect(data['categories'][0]['name']).to eq category[0].name
     expect(data['categories'][0]['description']).to eq category[0].description
@@ -36,8 +35,8 @@ describe 'Category API', type: :request do
   end
   it 'see one category' do
     category = create(:product_category)
-    category_another = create(:product_category, name: 'Email',
-                                                 description: 'Email 10')
+    category_two = create(:product_category, name: 'Email',
+                                             description: 'Email 10')
 
     get api_category_path(category)
 
@@ -46,7 +45,14 @@ describe 'Category API', type: :request do
     expect(response.status).to eq 200
     expect(data['categories']['name']).to eq category.name
     expect(data['categories']['description']).to eq category.description
-    expect(data['categories']['name']).not_to eq category_another.name
-    expect(data['categories']['description']).not_to eq category_another.description
+    expect(data['categories']['name']).not_to eq category_two.name
+    expect(data['categories']['description']).not_to eq category_two.description
+  end
+  it 'and see a message if no categories_id found' do
+    get api_category_path(1)
+
+    data = JSON.parse(response.body)
+    expect(data['message']).to eq 'Nenhuma categoria encontrada'
+    expect(response.status).to eq 404
   end
 end

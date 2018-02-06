@@ -23,3 +23,5 @@ Metrics/BlockLength:
   ExcludedMethods: ['describe', 'context', 'feature', 'scenario', 'let']
 Style/EmptyMethod:
   EnforcedStyle: expanded
+Style/SymbolArray:
+  EnforcedStyle: brackets
