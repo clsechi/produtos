@@ -3,8 +3,7 @@ module Api
     def index
       categories = ProductCategory.all
       json = categories.as_json(except: [:created_at, :updated_at])
-      return render json: { categories: json } unless categories.empty?
-      render json: { message: 'Nenhuma categoria encontrada' }, status: 404
+      render json: { categories: json }
     end
 
     def show
