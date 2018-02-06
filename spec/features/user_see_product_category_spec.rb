@@ -44,7 +44,7 @@ feature 'product_category' do
     click_on('Categoria')
     click_on(product_category.name)
 
-    expect(page).to have_link(product_category.name)
-    expect(page).to have_link(product_category.description)
+    expect(page).to have_content(product_category.name)
+    expect(page).to have_content(product_category.description)
   end
 end

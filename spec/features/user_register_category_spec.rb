@@ -25,4 +25,12 @@ feature 'User register category' do
 
     expect(page).to have_content('Campos inválidos. Não pode ser nulo!')
   end
+  scenario 'see come back link in show' do
+    category = create(:product_category)
+
+    visit product_category_path category
+    click_on('Voltar')
+
+    expect(current_path).to eq product_categories_path
+  end
 end
