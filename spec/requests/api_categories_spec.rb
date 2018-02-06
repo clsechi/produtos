@@ -6,8 +6,8 @@ describe 'Category API', type: :request do
     get api_categories_path
     data = JSON.parse(response.body)
     expect(response.status).to eq 200
-    expect(data[0]['name']).to eq category.name
-    expect(data[0]['description']).to eq category.description
+    expect(data['categories'][0]['name']).to eq category.name
+    expect(data['categories'][0]['description']).to eq category.description
   end
 
   it 'and see a message if no categories found' do
@@ -24,13 +24,29 @@ describe 'Category API', type: :request do
 
     get api_categories_path
     data = JSON.parse(response.body)
+    pp(data)
+    
     expect(response.status).to eq 200
+    expect(data['categories'][0]['name']).to eq category[0].name
+    expect(data['categories'][0]['description']).to eq category[0].description
+    expect(data['categories'][1]['name']).to eq category[1].name
+    expect(data['categories'][1]['description']).to eq category[1].description
+    expect(data['categories'][2]['name']).to eq category[2].name
+    expect(data['categories'][2]['description']).to eq category[2].description
+  end
+  it 'see one category' do
+    category = create(:product_category)
+    category_another = create(:product_category, name: 'Email',
+                                                 description: 'Email 10')
 
-    expect(data[0]['name']).to eq category[0].name
-    expect(data[0]['description']).to eq category[0].description
-    expect(data[1]['name']).to eq category[1].name
-    expect(data[1]['description']).to eq category[1].description
-    expect(data[2]['name']).to eq category[2].name
-    expect(data[2]['description']).to eq category[2].description
+    get api_category_path(category)
+
+    data = JSON.parse(response.body)
+
+    expect(response.status).to eq 200
+    expect(data['categories']['name']).to eq category.name
+    expect(data['categories']['description']).to eq category.description
+    expect(data['categories']['name']).not_to eq category_another.name
+    expect(data['categories']['description']).not_to eq category_another.description
   end
 end
