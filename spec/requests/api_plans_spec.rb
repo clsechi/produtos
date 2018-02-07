@@ -11,6 +11,7 @@ describe 'Plan - ', type: :request do
       data = JSON.parse(response.body)
 
       expect(response.status).to eq 200
+
       expect(data['plans'][0]['id']).to eq(plan.id)
       expect(data['plans'][0]['duration']).to eq(plan.duration)
       expect(data['plans'][0]['product_id']).to eq(plan.product_id)

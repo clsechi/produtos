@@ -15,7 +15,7 @@ describe 'Prices API', type: :request do
 
       expect(response.status).to eq 200
       expect(data[0]['product_plan_id']).to eq(plan.id)
-      expect(data[0]['value']).to eq(price.value)
+      expect(data[0]['value']).to eq(price.value.to_s)
     end
 
     it 'request two prices and two periodicities for same plan' do
@@ -34,9 +34,9 @@ describe 'Prices API', type: :request do
       expect(response.status).to eq 200
       expect(data[0]['product_plan_id']).to eq(plan.id)
       expect(data[0]['periodicity_id']).to eq(periodicity.id)
-      expect(data[0]['value']).to eq(price.value)
+      expect(data[0]['value']).to eq(price.value.to_s)
       expect(data[1]['periodicity_id']).to eq(another_periodicity.id)
-      expect(data[1]['value']).to eq(another_price.value)
+      expect(data[1]['value']).to eq(another_price.value.to_s)
     end
 
     it 'response 404 to empty plan price' do

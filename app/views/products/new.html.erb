@@ -1,18 +1,18 @@
 <%= flash[:error] %>
 
 <%= form_for @product do |f| %>
- <div>
+  <div>
    <%= f.label :name, 'Nome' %>
-    <%= f.text_field :name %>
+   <%= f.text_field :name %>
   </div>
   <div>
     <%= f.label :description, 'Descrição Completa' %>
     <%= f.text_area :description %>
   </div>
   <div>
-      <%= f.label :product_category_id, 'Categoria' %>
-      <%= f.collection_select :product_category_id, @categories, :id, :name  %>
-    </div>
+    <%= f.label :product_category_id, 'Categoria' %>
+    <%= f.collection_select :product_category_id, @categories, :id, :name  %>
+  </div>
 
 
   <div>
