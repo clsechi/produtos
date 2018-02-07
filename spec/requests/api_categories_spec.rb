@@ -15,8 +15,7 @@ describe 'Category API', type: :request do
 
     data = JSON.parse(response.body)
 
-    expect(data['message']).to eq 'Nenhuma categoria encontrada'
-    expect(response.status).to eq 404
+    expect(data['categories']).to eq []
   end
 
   it 'and see a list of categories ' do
