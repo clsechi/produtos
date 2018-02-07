@@ -99,17 +99,17 @@ GET **/api/products/:product_id/product_plans** (Retorna todos os planos de um d
 ```json
 {
    "products":{
-      "id":"1"
+      "id":1
    },
    "plans":[
       {
          "id":1,
-         "duration":1,
+         "name":1,
          "product_id":1
       },
       {
          "id":2,
-         "duration":1,
+         "name":1,
          "product_id":1
       }
    ]
@@ -120,7 +120,7 @@ GET **/api/products/:product_id/product_plans** (Retorna todos os planos de um d
 ```json
 {
    "products":{
-      "id":"1"
+      "id":1
    },
    "plans":[
    ]

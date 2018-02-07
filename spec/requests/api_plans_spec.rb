@@ -13,7 +13,7 @@ describe 'Plan - ', type: :request do
       expect(response.status).to eq 200
 
       expect(data['plans'][0]['id']).to eq(plan.id)
-      expect(data['plans'][0]['duration']).to eq(plan.duration)
+      expect(data['plans'][0]['name']).to eq(plan.name)
       expect(data['plans'][0]['product_id']).to eq(plan.product_id)
     end
     it 'response 200 and a message to empty product plans' do
@@ -36,11 +36,11 @@ describe 'Plan - ', type: :request do
 
       expect(response.status).to eq 200
       expect(data['plans'][0]['id']).to eq(plan.id)
-      expect(data['plans'][0]['duration']).to eq(plan.duration)
+      expect(data['plans'][0]['name']).to eq(plan.name)
       expect(data['plans'][0]['product_id']).to eq(plan.product_id)
 
       expect(data['plans'][1]['id']).to eq(another_plan.id)
-      expect(data['plans'][1]['duration']).to eq(another_plan.duration)
+      expect(data['plans'][1]['name']).to eq(another_plan.name)
       expect(data['plans'][1]['product_id']).to eq(another_plan.product_id)
     end
     it 'get plans from a product' do
@@ -55,9 +55,9 @@ describe 'Plan - ', type: :request do
 
       expect(response.status).to eq 200
       expect(data['plans'][0]['product_id']).to eq(plan.product_id)
-      expect(data['plans'][0]['duration']).to eq(plan.duration)
+      expect(data['plans'][0]['name']).to eq(plan.name)
       expect(data['plans'][1]['product_id']).to eq(another_plan.product_id)
-      expect(data['plans'][1]['duration']).to eq(another_plan.duration)
+      expect(data['plans'][1]['name']).to eq(another_plan.name)
     end
   end
 end
