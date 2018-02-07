@@ -93,7 +93,40 @@ GET  **/api/categories/:category_id/products** (Retorna todos os produtos de uma
 ```
 
 <br>
-GET **/api/categories/[:id_category]/products** (Retorna todos os produtos de uma categoria)
+GET **/api/products/:product_id/product_plans** (Retorna todos os planos de um determinado produto)
+>###### Sucesso
+> status 200 <br>
+```json
+{
+   "products":{
+      "id":"1"
+   },
+   "plans":[
+      {
+         "id":1,
+         "duration":1,
+         "product_id":1
+      },
+      {
+         "id":2,
+         "duration":1,
+         "product_id":1
+      }
+   ]
+}
+```
+>###### Falha
+> status 404 <br>
+```json
+{
+   "products":{
+      "id":"1"
+   },
+   "plans":[
+   ]
+}
+```
+
 
 GET **/api/products/[:id_product]/plans** (Retorna todos os planos de um produto)
 
