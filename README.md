@@ -6,7 +6,7 @@
 GET **/api/categories** (Retorna todas categorias)
 > ###### Sucesso
 > status 200 <br>
-```
+```json
 {
    "categories":[
       {
@@ -24,7 +24,7 @@ GET **/api/categories** (Retorna todas categorias)
 ```
 > ###### Falha
 > status 404 <br>
-```
+```json
 {
    "message":"Nenhuma categoria encontrada"
 }
@@ -33,7 +33,7 @@ GET **/api/categories** (Retorna todas categorias)
 GET **/api/categories/[:id_category]** (Retorna uma categoria específica)
 >###### Sucesso
 > status 200 <br>
-```
+```json
 {
    "categories":{
       "id":1,
@@ -45,7 +45,7 @@ GET **/api/categories/[:id_category]** (Retorna uma categoria específica)
 
 >###### Falha
 > status 404 <br>
-```
+```json
 {
    "message":"Nenhuma categoria encontrada"
 }

@@ -12,7 +12,6 @@ describe 'Details Plan - ', type: :request do
 
       expect(response.status).to eq 200
       expect(data['id']).to eq(plan.id)
-      expect(data['duration']).to eq(plan.duration)
       expect(data['product_id']).to eq(plan.product_id)
     end
     it 'response 404 to empty product plans' do

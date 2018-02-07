@@ -1,8 +1,8 @@
 <%= form_for @plan do |f| %>
-  <div>
-    <%= f.label :duration, 'Duração' %>
-    <%= f.number_field :duration %>
-  </div>
+<div>
+ <%= f.label :name, 'Nome' %>
+ <%= f.text_field :name %>
+</div>
   <div>
     <%= f.label :product_id, 'Produto' %>
     <%= f.collection_select :product_id, @products, :id, :name  %>

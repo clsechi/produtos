@@ -12,7 +12,6 @@ describe 'Plan - ', type: :request do
 
       expect(response.status).to eq 200
       expect(data[0]['id']).to eq(plan.id)
-      expect(data[0]['duration']).to eq(plan.duration)
       expect(data[0]['product_id']).to eq(plan.product_id)
     end
     it 'response 200 and a message to empty product plans' do
@@ -35,11 +34,9 @@ describe 'Plan - ', type: :request do
 
       expect(response.status).to eq 200
       expect(data[0]['id']).to eq(plan.id)
-      expect(data[0]['duration']).to eq(plan.duration)
       expect(data[0]['product_id']).to eq(plan.product_id)
 
       expect(data[1]['id']).to eq(plan2.id)
-      expect(data[1]['duration']).to eq(plan2.duration)
       expect(data[1]['product_id']).to eq(plan2.product_id)
     end
   end

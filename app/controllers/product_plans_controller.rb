@@ -1,7 +1,7 @@
 class ProductPlansController < ApplicationController
   def index
-    @prices = PlanPrice.all
-    flash[:notice] = 'Não existe nenhum plano cadastrado' if @prices.empty?
+    @plans = ProductPlan.all
+    flash[:notice] = 'Não existe nenhum plano cadastrado' if @plans.empty?
   end
 
   def new
@@ -27,6 +27,6 @@ class ProductPlansController < ApplicationController
   private
 
   def plan_params
-    params.require(:product_plan).permit(:duration, :product_id)
+    params.require(:product_plan).permit(:name, :product_id)
   end
 end

@@ -2,5 +2,5 @@ class ProductPlan < ApplicationRecord
   has_many :plan_prices, dependent: :destroy
   belongs_to :product
 
-  validates :duration, :product_id, presence: true
+  validates :product_id, :name, presence: true
 end

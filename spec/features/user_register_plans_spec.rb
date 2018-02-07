@@ -6,11 +6,10 @@ feature 'User register plan' do
     product = create(:product, product_category: category)
 
     visit new_product_plan_path
-    fill_in 'Duração', with: 30
+    fill_in 'Nome', with: 'Hospedagem Ilimitada I'
     select product.name, from: 'Produto'
     click_on 'Enviar'
 
-    expect(page).to have_content('30')
     expect(page).to have_content(product.name)
   end
 
@@ -19,7 +18,7 @@ feature 'User register plan' do
     create(:product, product_category: category)
 
     visit new_product_plan_path
-    fill_in 'Duração', with: ''
+    fill_in 'Nome', with: ''
     select '', from: 'Produto'
     click_on 'Enviar'
 
