@@ -7,10 +7,9 @@ feature 'User register product' do
     user = create(:user)
     login_as(user)
 
-    visit new_product_path
+    visit new_product_category_product_path(category.id)
     fill_in 'Nome', with: 'Hospedagem'
     fill_in 'Descrição Completa', with: 'Hospedagem ilimitada'
-    select category.name, from: 'Categoria'
     fill_in 'Chave do Produto', with: 'HOSP123'
     fill_in 'Contrato', with: 'contrato123'
     click_on 'Enviar'
@@ -23,22 +22,21 @@ feature 'User register product' do
   end
 
   scenario 'and must fill all fields' do
-    ProductCategory.create(name: 'Hospedagem', description:
+    category = ProductCategory.create(name: 'Hospedagem', description:
                            'Hospedagem ilimitada')
     user = create(:user)
     login_as(user)
 
-    visit new_product_path
+    visit new_product_category_product_path(category.id)
     fill_in 'Nome', with: ''
     fill_in 'Descrição Completa', with: ''
-    select '', from: 'Categoria'
     fill_in 'Chave do Produto', with: ''
     fill_in 'Contrato', with: ''
     click_on 'Enviar'
 
     expect(page).to have_content('Campos inválidos. Não pode ser nulo!')
   end
-  scenario 'see come back link in show' do
+  scenario 'see comeback link in show' do
     category = ProductCategory.create(name: 'Hospedagem', description:
                            'Hospedagem ilimitada')
     product = create(:product, product_category: category)

@@ -6,12 +6,12 @@ class ProductsController < ApplicationController
   end
 
   def new
-    @categories = ProductCategory.all
     @product = Product.new
   end
 
   def create
-    @product = Product.new(product_params)
+    @category = ProductCategory.find(params[:product_category_id])
+    @product = @category.products.new(product_params)
     if @product.save
       render :show
     else
@@ -19,6 +19,7 @@ class ProductsController < ApplicationController
       flash.now[:error] = 'Campos inválidos. Não pode ser nulo!'
       render :new
     end
+
   end
 
   def show
