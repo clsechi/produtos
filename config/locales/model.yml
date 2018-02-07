@@ -1,0 +1,17 @@
+pt-BR:
+  activerecord:
+    models:
+      user: Usuário
+      periodicity: Periodicidade
+      plan_price: Preço do plano
+      product_category: Categoria do produto
+      product_plan: Plano do produto
+      product: Produto
+    attributes:
+      user:
+        email: Email
+        password: Senha
+        password_confirmation: Confirmar senha
+  buttons:
+    sign_up: Registrar
+    log_in: Entrar

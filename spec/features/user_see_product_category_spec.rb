@@ -5,7 +5,9 @@ feature 'product_category' do
     product_category = create(:product_category,
                               name: 'Hospedagem',
                               description: 'Domínio grátis e sites ilimitados')
+    user = create(:user)
 
+    login_as(user)
     visit root_path
     click_on('Categoria')
 
@@ -14,6 +16,9 @@ feature 'product_category' do
   end
 
   scenario 'show error message when dont have category' do
+    user = create(:user)
+
+    login_as(user)
     visit root_path
     click_on('Categoria')
 
@@ -27,7 +32,9 @@ feature 'product_category' do
     other_product_category = create(:product_category, name: 'Email',
                                                        description: 'Contas
                                                        ilimitadas')
+    user = create(:user)
 
+    login_as(user)
     visit root_path
     click_on('Categoria')
 
@@ -39,7 +46,9 @@ feature 'product_category' do
     product_category = ProductCategory.create(name: 'Hospedagem',
                                               description: 'Domínio grátis e
                                               sites ilimitados')
+    user = create(:user)
 
+    login_as(user)
     visit root_path
     click_on('Categoria')
     click_on(product_category.name)

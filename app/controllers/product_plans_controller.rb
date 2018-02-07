@@ -1,4 +1,5 @@
 class ProductPlansController < ApplicationController
+  before_action :authenticate_user!
   def index
     @plans = ProductPlan.all
     flash[:notice] = 'Não existe nenhum plano cadastrado' if @plans.empty?
