@@ -13,3 +13,4 @@ description: 'Hospedagem ilimitada',
 product_category_id: category.id)
 plan = ProductPlan.create(duration: 12, product_id: product.id)
 PlanPrice.create(value: 120, product_plan_id: plan.id)
+user = create(:user)

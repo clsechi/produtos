@@ -8,6 +8,8 @@ feature 'user can see plans' do
     periodicity = create(:periodicity, name: 'Mensal', period: 1)
     price = create(:plan_price, product_plan: plan, value: 10,
                                 periodicity: periodicity)
+    user = create(:user)
+    login_as(user)
 
     visit product_plans_path
 
@@ -17,6 +19,8 @@ feature 'user can see plans' do
   end
 
   scenario 'and see nothing if plans table to be blank' do
+    user = create(:user)
+    login_as(user)
     visit product_plans_path
 
     expect(page).not_to have_content('Email')
@@ -35,6 +39,8 @@ feature 'user can see plans' do
     another_price = create(:plan_price, product_plan: another_plan, value: 5,
                                         periodicity: another_periodicity)
 
+    user = create(:user)
+    login_as(user)
     visit product_plans_path
 
     expect(page).to have_content(price.product_plan.product.name)
@@ -51,7 +57,9 @@ feature 'user can see plans' do
     periodicity = create(:periodicity, name: 'Mensal', period: 1)
     price = create(:plan_price, product_plan: plan, value: 10,
                                 periodicity: periodicity)
+    user = create(:user)
 
+    login_as(user)
     visit product_plans_path
 
     expect(page).to have_content(price.product_plan.product.name)
