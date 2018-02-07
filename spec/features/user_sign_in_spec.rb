@@ -31,7 +31,7 @@ feature 'user can sign in' do
     login_as(user)
 
     visit root_path
-    
+
     click_on 'Sair'
 
     expect(current_path).to eq new_user_session_path
