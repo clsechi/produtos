@@ -2,6 +2,7 @@ require 'rails_helper'
 
 feature 'user can see plans' do
   scenario 'sucessfuly' do
+    user = create(:user)
     category = create(:product_category)
     product = create(:product, product_category: category)
     plan = create(:product_plan, product: product)
@@ -9,6 +10,7 @@ feature 'user can see plans' do
     create(:plan_price, product_plan: plan, value: 10.53,
                         periodicity: periodicity)
 
+    login_as(user)
     visit product_plans_path
 
     expect(page).to have_content(plan.name)
@@ -17,6 +19,8 @@ feature 'user can see plans' do
   end
 
   scenario 'and see nothing if plans table to be blank' do
+    user = create(:user)
+    login_as(user)
     visit product_plans_path
 
     expect(page).not_to have_content('Email')
@@ -35,6 +39,8 @@ feature 'user can see plans' do
     create(:plan_price, product_plan: another_plan, value: 5,
                         periodicity: another_periodicity)
 
+    user = create(:user)
+    login_as(user)
     visit product_plans_path
 
     expect(page).to have_content(plan.name)

@@ -18,3 +18,5 @@ plan = ProductPlan.create(duration: 12, product_id: product.id)
 
 PlanPrice.create(value: 120, product_plan_id: plan.id,
                  periodicity_id: periodicity.id)
+
+user = create(:user)

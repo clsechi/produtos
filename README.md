@@ -51,6 +51,47 @@ GET **/api/categories/[:id_category]** (Retorna uma categoria específica)
 }
 ```
 
+GET  **/api/categories/:category_id/products** (Retorna todos os produtos de uma categoria)
+>###### Sucesso
+> status 200 <br>
+```json
+{
+   "categories":{
+      "id":1
+   },
+   "products":[
+      {
+         "id":1,
+         "name":"Hospedagem",
+         "description":"Hospedagem ilimitada",
+         "product_key":"HOSP123",
+         "product_category_id":1,
+         "contract":"contrato123"
+      },
+      {
+         "id":2,
+         "name":"Email",
+         "description":"Email",
+         "product_key":"MAIL123",
+         "product_category_id":1,
+         "contract":"contrato123"
+      }
+   ]
+}
+```
+
+>###### Falha
+> status 404 <br>
+```json
+{
+   "categories":{
+      "id":1
+   },
+   "products":[
+   ]
+}
+```
+
 <br>
 GET **/api/categories/[:id_category]/products** (Retorna todos os produtos de uma categoria)
 

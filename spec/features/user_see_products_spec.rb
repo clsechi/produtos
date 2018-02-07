@@ -7,7 +7,9 @@ feature 'products' do
                                description: 'Hospedagem nova',
                                product_key: 'HOP123',
                                product_category: category)
+    user = create(:user)
 
+    login_as(user)
     visit root_path
     click_on 'Produtos'
 
@@ -18,6 +20,9 @@ feature 'products' do
     expect(page).not_to have_content('Não há produtos cadastrados!')
   end
   scenario 'show error message when dont have product' do
+    user = create(:user)
+
+    login_as(user)
     visit root_path
     click_on 'Produtos'
 
@@ -34,7 +39,9 @@ feature 'products' do
                                        description: 'Hospedagem new',
                                        product_key: 'HOP123',
                                        product_category: category)
+    user = create(:user)
 
+    login_as(user)
     visit root_path
     click_on 'Produtos'
 

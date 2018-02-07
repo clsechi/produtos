@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_user!
   def index
     @products = Product.all
     flash.now[:notice] = 'Não há produtos cadastrados!' if @products.empty?
