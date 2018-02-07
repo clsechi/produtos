@@ -5,12 +5,18 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Periodicity.create(name: 'Anual', period: '12')
+periodicity = Periodicity.create(name: 'Anual', period: '12')
+
 category = ProductCategory.create(name: 'Hospedagem',
 description: 'Hospedagem ilimitada')
+
 product = Product.create(name: 'Hospedagem', product_key: 'HOSP123',
-description: 'Hospedagem ilimitada',
+description: 'Hospedagem ilimitada', contract: 'contrato123',
 product_category_id: category.id)
+
 plan = ProductPlan.create(duration: 12, product_id: product.id)
-PlanPrice.create(value: 120, product_plan_id: plan.id)
+
+PlanPrice.create(value: 120, product_plan_id: plan.id,
+                 periodicity_id: periodicity.id)
+
 user = create(:user)

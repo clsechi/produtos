@@ -1,7 +1,4 @@
-<% @prices.each do |price| %>
-  <%= price.product_plan.product %>
-  <%= price.product_plan.duration %>
-  <%= price.product_plan.product.name %>
-  <%= price.product_plan.product.product_category.name %>
-  <%= price.value %>
+<% @plans.each do |plan| %>
+  <%= plan.name %>
+  <%= plan.product.name %>
 <%end%>

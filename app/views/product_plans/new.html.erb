@@ -1,0 +1,13 @@
+<%= form_for @plan do |f| %>
+<div>
+ <%= f.label :name, 'Nome' %>
+ <%= f.text_field :name %>
+</div>
+  <div>
+    <%= f.label :product_id, 'Produto' %>
+    <%= f.collection_select :product_id, @products, :id, :name  %>
+  </div>
+  <div>
+    <%= f.submit 'Enviar' %>
+  </div>
+<% end %>
