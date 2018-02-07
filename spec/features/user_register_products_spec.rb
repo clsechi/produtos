@@ -4,6 +4,8 @@ feature 'User register product' do
   scenario 'successfully' do
     category = ProductCategory.create(name: 'Hospedagem',
                                       description: 'Hospedagem ilimitada')
+    user = create(:user)
+    login_as(user)
 
     visit new_product_path
     fill_in 'Nome', with: 'Hospedagem'
@@ -23,6 +25,9 @@ feature 'User register product' do
   scenario 'and must fill all fields' do
     ProductCategory.create(name: 'Hospedagem', description:
                            'Hospedagem ilimitada')
+    user = create(:user)
+    login_as(user)
+
     visit new_product_path
     fill_in 'Nome', with: ''
     fill_in 'Descrição Completa', with: ''
@@ -37,6 +42,8 @@ feature 'User register product' do
     category = ProductCategory.create(name: 'Hospedagem', description:
                            'Hospedagem ilimitada')
     product = create(:product, product_category: category)
+    user = create(:user)
+    login_as(user)
 
     visit product_path product
     click_on('Voltar')

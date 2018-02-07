@@ -1,4 +1,5 @@
 class PeriodicitiesController < ApplicationController
+  before_action :authenticate_user!
   def index
     @periodicities = Periodicity.all
     return unless @periodicities.empty?

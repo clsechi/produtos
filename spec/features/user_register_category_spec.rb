@@ -2,7 +2,11 @@ require 'rails_helper'
 
 feature 'User register category' do
   scenario 'sucessfuly' do
+    user = create(:user)
+    login_as(user)
+
     visit root_path
+
     click_on('Categoria')
     click_on('Cadastrar categoria')
 
@@ -15,7 +19,11 @@ feature 'User register category' do
   end
 
   scenario 'cant save with blank field' do
+    user = create(:user)
+    login_as(user)
+
     visit root_path
+
     click_on('Categoria')
     click_on('Cadastrar categoria')
 
@@ -27,6 +35,8 @@ feature 'User register category' do
   end
   scenario 'see come back link in show' do
     category = create(:product_category)
+    user = create(:user)
+    login_as(user)
 
     visit product_category_path category
     click_on('Voltar')

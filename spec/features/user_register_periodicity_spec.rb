@@ -2,6 +2,9 @@ require 'rails_helper'
 
 feature 'User register periodicity' do
   scenario 'successfully' do
+    user = create(:user)
+    login_as(user)
+
     visit new_periodicity_path
     fill_in 'Nome', with: 'Anual'
     fill_in 'Período', with: '12'
@@ -12,7 +15,10 @@ feature 'User register periodicity' do
   end
 
   scenario 'and must fill in all fields' do
+    user = create(:user)
+    login_as(user)
     visit new_periodicity_path
+
     fill_in 'Nome', with: ''
     fill_in 'Período', with: ''
     click_on 'Enviar'
@@ -21,6 +27,8 @@ feature 'User register periodicity' do
   end
   scenario 'see come back link in show' do
     periodicity = create(:periodicity)
+    user = create(:user)
+    login_as(user)
 
     visit periodicity_path periodicity
     click_on('Voltar')
