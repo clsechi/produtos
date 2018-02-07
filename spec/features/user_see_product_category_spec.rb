@@ -9,8 +9,7 @@ feature 'product_category' do
     visit root_path
     click_on('Categoria')
 
-    expect(page).to have_content(product_category.name)
-    expect(page).to have_content(product_category.description)
+    expect(page).to have_link(product_category.name)
     expect(page).not_to have_content('Não há categorias cadastradas!')
   end
 
@@ -32,9 +31,20 @@ feature 'product_category' do
     visit root_path
     click_on('Categoria')
 
+    expect(page).to have_link(product_category.name)
+    expect(page).to have_link(other_product_category.name)
+  end
+
+  scenario 'show name and description' do
+    product_category = ProductCategory.create(name: 'Hospedagem',
+                                              description: 'Domínio grátis e
+                                              sites ilimitados')
+
+    visit root_path
+    click_on('Categoria')
+    click_on(product_category.name)
+
     expect(page).to have_content(product_category.name)
     expect(page).to have_content(product_category.description)
-    expect(page).to have_content(other_product_category.name)
-    expect(page).to have_content(other_product_category.description)
   end
 end

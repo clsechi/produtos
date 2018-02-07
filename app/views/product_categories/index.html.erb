@@ -1,5 +1,9 @@
 <%= flash[:notice] %>
+
+<%= link_to 'Cadastrar categoria', new_product_category_path %>
+
 <% @categories.each do |category| %>
-  <%= category.name %>
+  <%= link_to category.name, product_category_path(category) %>
   <%= category.description %>
+  <br>
 <% end %>
