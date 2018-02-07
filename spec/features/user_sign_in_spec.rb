@@ -26,4 +26,14 @@ feature 'user can sign in' do
     expect(page).to have_content('Sair')
     expect(current_path).to eq root_path
   end
+  scenario 'user can log out in system' do
+    user = create(:user)
+    login_as(user)
+
+    visit root_path
+    
+    click_on 'Sair'
+
+    expect(current_path).to eq new_user_session_path
+  end
 end
