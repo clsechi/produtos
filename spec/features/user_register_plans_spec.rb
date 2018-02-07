@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'User register plan' do
   scenario 'successfully' do
     category = create(:product_category)
-    product = Product.create(product_category: category)
+    product = create(:product, product_category: category)
 
     visit new_product_plan_path
     fill_in 'Duração', with: 30
@@ -16,7 +16,7 @@ feature 'User register plan' do
 
   scenario 'and must fill all fields' do
     category = create(:product_category)
-    Product.create(product_category: category)
+    create(:product, product_category: category)
 
     visit new_product_plan_path
     fill_in 'Duração', with: ''
@@ -27,7 +27,7 @@ feature 'User register plan' do
   end
   scenario 'see come back link in show' do
     category = create(:product_category)
-    product = Product.create(product_category: category)
+    product = create(:product, product_category: category)
     plan = create(:product_plan, product: product)
 
     visit product_plan_path plan
