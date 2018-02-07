@@ -104,12 +104,12 @@ GET **/api/products/:product_id/product_plans** (Retorna todos os planos de um d
    "plans":[
       {
          "id":1,
-         "name":1,
+         "name":"Email Premium",
          "product_id":1
       },
       {
          "id":2,
-         "name":1,
+         "name":"Email Basico",
          "product_id":1
       }
    ]
