@@ -1,0 +1,29 @@
+<%= flash[:error] %>
+
+<%= form_for @product do |f| %>
+ <div>
+   <%= f.label :name, 'Nome' %>
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <%= f.label :description, 'Descrição Completa' %>
+    <%= f.text_area :description %>
+  </div>
+  <div>
+      <%= f.label :product_category_id, 'Categoria' %>
+      <%= f.collection_select :product_category_id, @categories, :id, :name  %>
+    </div>
+
+
+  <div>
+    <%= f.label :product_key, 'Chave do Produto' %>
+    <%= f.text_field :product_key %>
+  </div>
+  <div>
+    <%= f.label :contract, 'Contrato' %>
+    <%= f.text_area :contract %>
+  </div>
+  <div>
+    <%= f.submit 'Enviar' %>
+  </div>
+<% end %>

@@ -12,6 +12,8 @@
     <% if user_signed_in? %>
     <%= link_to 'Sair' , destroy_user_session_path %>
     <% end %>
+    <%= flash[:error] %>
+    <%= flash[:notice] %>
     <%= yield %>
   </body>
 </html>
