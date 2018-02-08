@@ -10,12 +10,18 @@ describe 'Prices API', type: :request do
       price = create(:plan_price, product_plan: plan, value: 100,
                                   periodicity: periodicity)
 
-      get price_api_product_plan_path(plan)
+      get api_product_plan_plan_prices_path(plan)
       data = JSON.parse(response.body)
 
       expect(response.status).to eq 200
-      expect(data[0]['product_plan_id']).to eq(plan.id)
-      expect(data[0]['value']).to eq(price.value.to_s)
+      expect(data['plans']).to eq(plan.id)
+      expect(data['prices'][0]['id']).to eq(price.id)
+      expect(data['prices'][0]['product_plan_id']).to eq(plan.id)
+      expect(data['prices'][0]['value']).to eq(price.value.to_s)
+      expect(data['prices'][0]['periodicity']['name']).to eq(periodicity.name)
+      expect(
+        data['prices'][0]['periodicity']['period']
+      ).to eq periodicity.period
     end
 
     it 'request two prices and two periodicities for same plan' do
