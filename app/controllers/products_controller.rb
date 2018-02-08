@@ -1,17 +1,17 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_category, only: [:create]
   def index
     @products = Product.all
     flash.now[:notice] = 'Não há produtos cadastrados!' if @products.empty?
   end
 
   def new
-    @categories = ProductCategory.all
     @product = Product.new
   end
 
   def create
-    @product = Product.new(product_params)
+    @product = @category.products.new(product_params)
     if @product.save
       render :show
     else
@@ -30,5 +30,16 @@ class ProductsController < ApplicationController
   def product_params
     params.require(:product).permit(:name, :description, :product_key,
                                     :product_category_id, :contract)
+  end
+
+  def set_category
+    @category = ProductCategory.find(params[:product_category_id])
+  rescue ActiveRecord::RecordNotFound
+    invalid_category
+  end
+
+  def invalid_category
+    flash[:error] = 'Categoria não existe'
+    redirect_to root_path
   end
 end

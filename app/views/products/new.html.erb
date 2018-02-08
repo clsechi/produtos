@@ -1,6 +1,6 @@
 <%= flash[:error] %>
 
-<%= form_for @product do |f| %>
+<%= form_for @product, url: product_category_products_path do |f| %>
   <div>
    <%= f.label :name, 'Nome' %>
    <%= f.text_field :name %>
@@ -9,12 +9,6 @@
     <%= f.label :description, 'Descrição Completa' %>
     <%= f.text_area :description %>
   </div>
-  <div>
-    <%= f.label :product_category_id, 'Categoria' %>
-    <%= f.collection_select :product_category_id, @categories, :id, :name  %>
-  </div>
-
-
   <div>
     <%= f.label :product_key, 'Chave do Produto' %>
     <%= f.text_field :product_key %>
