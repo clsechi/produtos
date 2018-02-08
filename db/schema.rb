@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180207161259) do
+ActiveRecord::Schema.define(version: 20180208005440) do
 
   create_table "periodicities", force: :cascade do |t|
     t.string "name"
@@ -52,6 +52,10 @@ ActiveRecord::Schema.define(version: 20180207161259) do
     t.datetime "updated_at", null: false
     t.integer "product_category_id"
     t.text "contract"
+    t.string "icon_file_name"
+    t.string "icon_content_type"
+    t.integer "icon_file_size"
+    t.datetime "icon_updated_at"
     t.index ["product_category_id"], name: "index_products_on_product_category_id"
   end
 

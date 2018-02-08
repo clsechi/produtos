@@ -14,9 +14,9 @@ product = Product.create(name: 'Hospedagem', product_key: 'HOSP123',
 description: 'Hospedagem ilimitada', contract: 'contrato123',
 product_category_id: category.id)
 
-plan = ProductPlan.create(duration: 12, product_id: product.id)
+plan = ProductPlan.create(name: 'Hospedagem', product_id: product.id)
 
 PlanPrice.create(value: 120, product_plan_id: plan.id,
                  periodicity_id: periodicity.id)
 
-user = create(:user)
+user = User.create(email: 'teste@email.com', password: '123456')
