@@ -19,7 +19,6 @@ class ProductsController < ApplicationController
       flash.now[:error] = 'Campos inválidos. Não pode ser nulo!'
       render :new
     end
-
   end
 
   def show
