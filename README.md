@@ -154,4 +154,45 @@ GET **/api/products/:id** ( Retorna produto específico )
 
 GET **/api/products/[:id_product]/plans** (Retorna todos os planos de um produto)
 
+>###### Sucesso
+> status 200 <br>
+```json
+{
+  "plans":"1",
+  "prices":[
+     {
+        "id":1,
+        "product_plan_id":1,
+        "value":"100.0",
+        "periodicity":{
+           "id":1,
+           "name":"Anual",
+           "period":12
+        }
+     },
+     {
+        "id":2,
+        "product_plan_id":1,
+        "value":"100.0",
+        "periodicity":{
+           "id":2,
+           "name":"Mensal",
+           "period":1
+        }
+     }
+  ]
+}
+```
+>###### Falha
+> status 404 <br>
+```json
+{
+   "plans":{
+      "id":1
+   },
+   "prices":[
+   ]
+}
+```
+
 GET **/api/plans/[:id_plan]/prices** (Retorna todos os preços de um plano)

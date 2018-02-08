@@ -1,19 +1,33 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'home#index'
+
   resources :periodicities, only: [:index, :new, :create, :show]
-  resources :product_categories, only:[:index, :show, :new, :create]
-  resources :product_plans, only:[:index, :show, :new, :create]
-  resources :products, only:[:index, :new, :create, :show]
+
+  resources :product_categories, only:[:index, :show, :new, :create] do
+    resources :products, only:[:new, :create]
+  end
+
+  resources :products, only:[:index, :show] do
+    resources :product_plans, only:[:new, :create]
+  end
+
+  resources :product_plans, only:[:index, :show] do
+    resources :plan_prices, only:[:new, :create]
+  end
 
   namespace :api do
     resources :categories, only:[:index, :show] do
       resources :products, only:[:index]
     end
+    
     resources :products, only:[:index, :show] do
-    resources :product_plans, only:[:index]
+      resources :product_plans, only:[:index]
     end
-    resources :product_plans, only:[:index, :show]
+    resources :product_plans, only: [:index, :show] do
+      resources :plan_prices, only: [:index]
+
+    end
     resources :periodicities, only:[:index]
 
     resources :product_plans, only:[:index, :show] do
