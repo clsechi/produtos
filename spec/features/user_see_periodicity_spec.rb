@@ -7,7 +7,7 @@ feature 'User can see peridocity' do
     login_as(user)
 
     visit root_path
-    click_on('Periodicidade')
+    click_on('Periodicidades')
 
     expect(page).to have_content(periodicity.name)
     expect(page).to have_content(periodicity.period)

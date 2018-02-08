@@ -2,12 +2,14 @@ require 'rails_helper'
 
 feature 'User register product' do
   scenario 'successfully' do
-    category = ProductCategory.create(name: 'Hospedagem',
-                                      description: 'Hospedagem ilimitada')
+    category = create(:product_category)
     user = create(:user)
     login_as(user)
 
-    visit new_product_category_product_path(category.id)
+    visit root_path
+    click_on 'Categorias'
+    click_on category.name
+    click_on 'Cadastrar Produto'
     fill_in 'Nome', with: 'Hospedagem'
     fill_in 'Descrição Completa', with: 'Hospedagem ilimitada'
     fill_in 'Chave do Produto', with: 'HOSP123'
@@ -22,8 +24,7 @@ feature 'User register product' do
   end
 
   scenario 'and must fill all fields' do
-    category = ProductCategory.create(name: 'Hospedagem', description:
-                           'Hospedagem ilimitada')
+    category = create(:product_category)
     user = create(:user)
     login_as(user)
 
@@ -36,9 +37,9 @@ feature 'User register product' do
 
     expect(page).to have_content('Campos inválidos. Não pode ser nulo!')
   end
+
   scenario 'see comeback link in show' do
-    category = ProductCategory.create(name: 'Hospedagem', description:
-                           'Hospedagem ilimitada')
+    category = create(:product_category)
     product = create(:product, product_category: category)
     user = create(:user)
     login_as(user)
@@ -47,5 +48,21 @@ feature 'User register product' do
     click_on('Voltar')
 
     expect(current_path).to eq products_path
+  end
+
+  scenario 'and category id not exist' do
+    user = create(:user)
+    login_as(user)
+    not_found_category = 50
+    visit new_product_category_product_path(not_found_category)
+
+    fill_in 'Nome', with: 'Hospedagem'
+    fill_in 'Descrição Completa', with: 'Hospedagem ilimitada'
+    fill_in 'Chave do Produto', with: 'HOSP123'
+    fill_in 'Contrato', with: 'contrato123'
+    click_on 'Enviar'
+
+    expect(current_path).to eq root_path
+    expect(page).to have_content('Categoria não existe')
   end
 end
