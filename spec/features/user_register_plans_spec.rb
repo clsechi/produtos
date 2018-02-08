@@ -28,7 +28,7 @@ feature 'User register plan' do
 
     expect(page).to have_content('Campos inválidos. Não pode ser nulo!')
   end
-  scenario 'see come back link in show' do
+  scenario 'see comeback link in show' do
     user = create(:user)
     category = create(:product_category)
     product = create(:product, product_category: category)
@@ -38,6 +38,6 @@ feature 'User register plan' do
     visit product_plan_path plan
     click_on('Voltar')
 
-    expect(current_path).to eq product_plans_path
+    expect(current_path).to eq product_path(product)
   end
 end

@@ -5,7 +5,9 @@ feature 'User register periodicity' do
     user = create(:user)
     login_as(user)
 
-    visit new_periodicity_path
+    visit root_path
+    click_on 'Periodicidades'
+    click_on 'Cadastrar periodicidade'
     fill_in 'Nome', with: 'Anual'
     fill_in 'Período', with: '12'
     click_on 'Enviar'

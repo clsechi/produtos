@@ -47,7 +47,7 @@ feature 'User register product' do
     visit product_path product
     click_on('Voltar')
 
-    expect(current_path).to eq products_path
+    expect(current_path).to eq product_category_path(category)
   end
 
   scenario 'and category id not exist' do

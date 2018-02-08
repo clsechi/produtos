@@ -9,11 +9,10 @@
   </head>
 
   <body>
-    <%= flash[:alert] %>
-    <%= flash[:notice] %>
     <% if user_signed_in? %>
     <%= link_to 'Sair' , destroy_user_session_path, method: :delete %>
     <% end %>
+    <%= flash[:alert] %>
     <%= flash[:error] %>
     <%= flash[:notice] %>
     <%= yield %>

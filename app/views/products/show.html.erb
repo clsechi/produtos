@@ -6,4 +6,4 @@ Contrato: <%= @product.contract %>
 
 <%= link_to 'Cadastrar plano', new_product_product_plan_path(@product.id) %>
 
-<%= link_to 'Voltar', products_path %>
+<%= link_to 'Voltar', product_category_path(@product.product_category) %>

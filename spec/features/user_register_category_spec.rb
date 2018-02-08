@@ -33,7 +33,7 @@ feature 'User register category' do
 
     expect(page).to have_content('Campos inválidos. Não pode ser nulo!')
   end
-  scenario 'see come back link in show' do
+  scenario 'see comeback link in show' do
     category = create(:product_category)
     user = create(:user)
     login_as(user)
