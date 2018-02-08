@@ -7,10 +7,9 @@ feature 'User register plan' do
     product = create(:product, product_category: category)
 
     login_as(user)
-    visit new_product_product_plan_path(product)
-
+    visit product_path(product)
+    click_on 'Cadastrar plano'
     fill_in 'Nome', with: 'Hospedagem Ilimitada I'
-    select product.name, from: 'Produto'
     click_on 'Enviar'
 
     expect(page).to have_content(product.name)
@@ -25,7 +24,6 @@ feature 'User register plan' do
     visit new_product_product_plan_path(product)
 
     fill_in 'Nome', with: ''
-    select '', from: 'Produto'
     click_on 'Enviar'
 
     expect(page).to have_content('Campos inválidos. Não pode ser nulo!')
