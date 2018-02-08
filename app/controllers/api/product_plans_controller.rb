@@ -13,12 +13,11 @@ module Api
     end
 
     def show
-      product_plan = ProductPlan.find_by(id: params[:id])
-      if product_plan.nil?
-        render json: { message: 'Nenhum plano encontrado' }, status: 404
-      else
-        render json: product_plan
-      end
+      product_plan = ProductPlan.find(params[:id])
+      json = product_plan.as_json(except: [:created_at, :updated_at])
+      render json: { plans: json }, status: 200
+    rescue ActiveRecord::RecordNotFound
+      render json: { message: 'Nenhum plano encontrado' }, status: 404
     end
   end
 end
