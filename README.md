@@ -126,7 +126,56 @@ GET **/api/products/:product_id/product_plans** (Retorna todos os planos de um d
    ]
 }
 ```
+GET **/api/categories** (Retorna todas categorias)
+> ###### Sucesso
+> status 200 <br>
+```json
+{
+   "categories":[
+      {
+         "id":1,
+         "name":"Hospedagem",
+         "description":"Domínio grátis e sites ilimitados"
+      },
+      {
+         "id":2,
+         "name":"Crie seu site",
+         "description":"Criador de site"
+      }
+   ]
+}
+```
+> ###### Falha
+> status 404 <br>
+```json
+{
+   "message":"Nenhuma categoria encontrada"
+}
+```
 
+GET **/api/product_plans/:id** (Retorna uma categoria específica)
+>###### Sucesso
+> status 200 <br>
+```json
+{
+   "plans":{
+      "id":1,
+      "product_id":1,
+      "name":"Hospedagem Ilimitada I"
+   }
+}
+```
+
+>###### Falha
+> status 404 <br>
+```json
+{
+   "message":"Nenhum plano encontrado"
+}
+```
+
+
+GET **/api/product_plans/:id** (Retorna um plano específico)
 
 GET **/api/products/[:id_product]/plans** (Retorna todos os planos de um produto)
 
