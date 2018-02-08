@@ -1,0 +1,13 @@
+<%= form_for @price, url: product_plan_plan_prices_path do |f| %>
+  <div>
+    <%= f.label :value, 'Valor' %>
+    <%= f.number_field :value %>
+  </div>
+  <div>
+    <%= f.label :periodicity_id, 'Periodicidade' %>
+    <%= f.collection_select :periodicity_id, @periodicities, :id, :name  %>
+  </div>
+  <div>
+    <%= f.submit 'Enviar' %>
+  </div>
+<% end %>
