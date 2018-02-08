@@ -9,10 +9,9 @@ describe 'Details Plan - ', type: :request do
 
       get api_product_plan_path(plan)
       data = JSON.parse(response.body)
-
       expect(response.status).to eq 200
-      expect(data['id']).to eq(plan.id)
-      expect(data['product_id']).to eq(plan.product_id)
+      expect(data['plans']['id']).to eq(plan.id)
+      expect(data['plans']['product_id']).to eq(plan.product_id)
     end
     it 'response 404 to empty product plans' do
       get api_product_plan_path(100)
