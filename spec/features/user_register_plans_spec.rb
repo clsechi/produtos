@@ -8,6 +8,7 @@ feature 'User register plan' do
 
     login_as(user)
     visit new_product_product_plan_path(product)
+
     fill_in 'Nome', with: 'Hospedagem Ilimitada I'
     select product.name, from: 'Produto'
     click_on 'Enviar'
@@ -22,6 +23,7 @@ feature 'User register plan' do
 
     login_as(user)
     visit new_product_product_plan_path(product)
+
     fill_in 'Nome', with: ''
     select '', from: 'Produto'
     click_on 'Enviar'
