@@ -5,5 +5,11 @@ module Api
       json = product.as_json(except: [:created_at, :updated_at])
       render json: { categories: { id: params[:category_id] }, products: json }
     end
+
+    def show
+      product = Product.find(params[:id])
+      json = product.as_json(except: [:created_at, :updated_at])
+      render json: { products: json }
+    end
   end
 end

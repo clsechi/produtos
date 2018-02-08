@@ -10,8 +10,8 @@ Rails.application.routes.draw do
     resources :categories, only:[:index, :show] do
       resources :products, only:[:index]
     end
-    resources :products, only:[:index] do
-    resources :product_plans, only:[:index]  
+    resources :products, only:[:index, :show] do
+    resources :product_plans, only:[:index]
     end
     resources :product_plans, only:[:index, :show]
     resources :periodicities, only:[:index]
