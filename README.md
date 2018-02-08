@@ -127,6 +127,30 @@ GET **/api/products/:product_id/product_plans** (Retorna todos os planos de um d
 }
 ```
 
+GET **/api/products/:id** ( Retorna produto específico )
+
+>###### Sucesso
+> status 200 <br>
+```json
+{
+   "products":{
+      "id":1,
+      "name":"Hospedagem",
+      "description":"Hospedagem ilimitada",
+      "product_key":"HOSP123",
+      "product_category_id":1,
+      "contract":"contrato123"
+   }
+}
+```
+
+>###### Falha
+> status 404 <br>
+```json
+{
+   "message":"Nenhum produto encontrado"
+}
+```
 
 GET **/api/products/[:id_product]/plans** (Retorna todos os planos de um produto)
 

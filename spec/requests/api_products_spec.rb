@@ -58,5 +58,12 @@ describe 'Products - ', type: :request do
       ).to eq(product.product_category_id)
       expect(data['products']['id']).not_to eq(another_product.id)
     end
+    it 'and see a message if no product_id found' do
+      get api_product_path(1)
+
+      data = JSON.parse(response.body)
+      expect(data['message']).to eq 'Nenhum produto encontrado'
+      expect(response.status).to eq 404
+    end
   end
 end
