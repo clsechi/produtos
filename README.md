@@ -1,9 +1,11 @@
 # README
 
 
-## API
+# API
 
-GET **/api/categories** (Retorna todas categorias)
+## Categoria
+
+GET **/api/categories** ( Retorna todas categorias )
 > ###### Sucesso
 > status 200 <br>
 ```json
@@ -30,7 +32,7 @@ GET **/api/categories** (Retorna todas categorias)
 }
 ```
 
-GET **/api/categories/[:id_category]** (Retorna uma categoria específica)
+GET **/api/categories/[:category_id]** ( Retorna uma categoria específica )
 >###### Sucesso
 > status 200 <br>
 ```json
@@ -50,8 +52,9 @@ GET **/api/categories/[:id_category]** (Retorna uma categoria específica)
    "message":"Nenhuma categoria encontrada"
 }
 ```
+## Produtos
 
-GET  **/api/categories/:category_id/products** (Retorna todos os produtos de uma categoria)
+GET  **/api/categories/:category_id/products** ( Retorna todos os produtos de uma categoria )
 >###### Sucesso
 > status 200 <br>
 ```json
@@ -92,90 +95,7 @@ GET  **/api/categories/:category_id/products** (Retorna todos os produtos de uma
 }
 ```
 
-<br>
-GET **/api/products/:product_id/product_plans** (Retorna todos os planos de um determinado produto)
->###### Sucesso
-> status 200 <br>
-```json
-{
-   "products":{
-      "id":1
-   },
-   "plans":[
-      {
-         "id":1,
-         "name":"Email Premium",
-         "product_id":1
-      },
-      {
-         "id":2,
-         "name":"Email Basico",
-         "product_id":1
-      }
-   ]
-}
-```
->###### Falha
-> status 404 <br>
-```json
-{
-   "products":{
-      "id":1
-   },
-   "plans":[
-   ]
-}
-```
-GET **/api/categories** (Retorna todas categorias)
-> ###### Sucesso
-> status 200 <br>
-```json
-{
-   "categories":[
-      {
-         "id":1,
-         "name":"Hospedagem",
-         "description":"Domínio grátis e sites ilimitados"
-      },
-      {
-         "id":2,
-         "name":"Crie seu site",
-         "description":"Criador de site"
-      }
-   ]
-}
-```
-> ###### Falha
-> status 404 <br>
-```json
-{
-   "message":"Nenhuma categoria encontrada"
-}
-```
-
-GET **/api/product_plans/:id** (Retorna uma categoria específica)
->###### Sucesso
-> status 200 <br>
-```json
-{
-   "plans":{
-      "id":1,
-      "product_id":1,
-      "name":"Hospedagem Ilimitada I"
-   }
-}
-```
-
->###### Falha
-> status 404 <br>
-```json
-{
-   "message":"Nenhum plano encontrado"
-}
-```
-
-
-GET **/api/products/:id** ( Retorna produto específico )
+GET **/api/products/:id** ( Retorna um produto específico )
 
 >###### Sucesso
 > status 200 <br>
@@ -199,6 +119,7 @@ GET **/api/products/:id** ( Retorna produto específico )
    "message":"Nenhum produto encontrado"
 }
 ```
+## Planos
 
 GET **/api/products/[:id_product]/plans** (Retorna todos os planos de um produto)
 
@@ -243,4 +164,23 @@ GET **/api/products/[:id_product]/plans** (Retorna todos os planos de um produto
 }
 ```
 
-GET **/api/plans/[:id_plan]/prices** (Retorna todos os preços de um plano)
+GET **/api/product_plans/:id** ( Retorna um plano específico )
+>###### Sucesso
+> status 200 <br>
+```json
+{
+   "plans":{
+      "id":1,
+      "product_id":1,
+      "name":"Hospedagem Ilimitada I"
+   }
+}
+```
+
+>###### Falha
+> status 404 <br>
+```json
+{
+   "message":"Nenhum plano encontrado"
+}
+```
