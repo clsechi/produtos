@@ -2,10 +2,10 @@ require 'rails_helper'
 
 feature 'User register product' do
   scenario 'successfully' do
-    category = create(:product_category)
     user = create(:user)
-    login_as(user)
+    category = create(:product_category)
 
+    login_as(user)
     visit root_path
     click_on 'Categorias'
     click_on category.name
@@ -14,8 +14,10 @@ feature 'User register product' do
     fill_in 'Descrição Completa', with: 'Hospedagem ilimitada'
     fill_in 'Chave do Produto', with: 'HOSP123'
     fill_in 'Contrato', with: 'contrato123'
+    attach_file('Icone', 'spec/support/fixtures/hospedagem.png')
     click_on 'Enviar'
 
+    expect(page).to have_css("img[src*='hospedagem.png']")
     expect(page).to have_content('Hospedagem')
     expect(page).to have_content('Hospedagem ilimitada')
     expect(page).to have_content(category.name)
@@ -24,11 +26,11 @@ feature 'User register product' do
   end
 
   scenario 'and must fill all fields' do
-    category = create(:product_category)
     user = create(:user)
-    login_as(user)
+    category = create(:product_category)
 
-    visit new_product_category_product_path(category.id)
+    login_as(user)
+    visit new_product_category_product_path(category)
     fill_in 'Nome', with: ''
     fill_in 'Descrição Completa', with: ''
     fill_in 'Chave do Produto', with: ''
@@ -39,11 +41,11 @@ feature 'User register product' do
   end
 
   scenario 'see comeback link in show' do
+    user = create(:user)
     category = create(:product_category)
     product = create(:product, product_category: category)
-    user = create(:user)
-    login_as(user)
 
+    login_as(user)
     visit product_path product
     click_on('Voltar')
 

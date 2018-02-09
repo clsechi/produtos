@@ -54,6 +54,10 @@ ActiveRecord::Schema.define(version: 20180209163207) do
     t.integer "product_category_id"
     t.text "contract"
     t.boolean "status", default: true
+    t.string "icon_file_name"
+    t.string "icon_content_type"
+    t.integer "icon_file_size"
+    t.datetime "icon_updated_at"
     t.index ["product_category_id"], name: "index_products_on_product_category_id"
   end
 
