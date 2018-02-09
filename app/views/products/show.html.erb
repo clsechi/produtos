@@ -3,5 +3,7 @@ Descrição: <%= @product.description %>
 Categoria: <%= @product.product_category.name %>
 Chave do produto: <%= @product.product_key %>
 Contrato: <%= @product.contract %>
+<td><%= image_tag(@product.icon.url(:thumb)) %></td>
+
 
 <%= link_to 'Voltar', products_path %>
