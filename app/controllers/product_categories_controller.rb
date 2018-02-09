@@ -12,7 +12,7 @@ class ProductCategoriesController < ApplicationController
   def create
     @category = ProductCategory.new(category_params)
     if @category.save
-      render :show
+      redirect_to @category
     else
       flash.now[:error] = 'Campos inválidos. Não pode ser nulo!'
       render :new
@@ -21,6 +21,20 @@ class ProductCategoriesController < ApplicationController
 
   def show
     @category = ProductCategory.find(params[:id])
+  end
+
+  def edit
+    @category = ProductCategory.find(params[:id])
+  end
+
+  def update
+    @category = ProductCategory.find(params[:id])
+    if @category.update(category_params)
+      redirect_to @category
+    else
+      flash.now[:error] = 'Campos inválidos. Não pode ser nulo!'
+      render :new
+    end
   end
 
   private

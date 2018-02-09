@@ -4,7 +4,8 @@ Rails.application.routes.draw do
 
   resources :periodicities, only: [:index, :new, :create, :show]
 
-  resources :product_categories, only:[:index, :show, :new, :create] do
+  resources :product_categories, only:[:index, :show, :new, :create, :edit,
+                                       :update] do
     resources :products, only:[:new, :create]
   end
 
