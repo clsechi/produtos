@@ -10,7 +10,7 @@ module Api
                                               [:created_at, :updated_at])
         indice += 1
       end
-      render json: { plans: params[:product_plan_id].to_i, prices: json }
+      render json: { plans: params[:product_plan_id].to_i, prices: [json.last] }
     end
   end
 end
