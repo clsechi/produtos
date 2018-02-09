@@ -1,0 +1,13 @@
+<%= form_for @plan, url: form_url do |f| %>
+  <div>
+   <%= f.label :name, 'Nome' %>
+   <%= f.text_field :name %>
+  </div>
+  <div>
+    <%= f.label :status, 'Status' %>
+    <%= f.select(:status, [['Ativo', true], ['Inativo', false]]) %>
+  </div>
+  <div>
+    <%= f.submit 'Enviar' %>
+  </div>
+<% end %>
