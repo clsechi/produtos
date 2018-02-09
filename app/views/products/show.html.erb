@@ -3,7 +3,9 @@ Descrição: <%= @product.description %>
 Categoria: <%= @product.product_category.name %>
 Chave do produto: <%= @product.product_key %>
 Contrato: <%= @product.contract %>
+Status: <%= @product.actual_status %>
 <td><%= image_tag(@product.icon.url(:thumb)) %></td>
 
-
-<%= link_to 'Voltar', products_path %>
+<%= link_to 'Cadastrar plano', new_product_product_plan_path(@product.id) %>
+<%= link_to 'Editar', edit_product_category_product_path(@product) %>
+<%= link_to 'Voltar', product_category_path(@product.product_category) %>

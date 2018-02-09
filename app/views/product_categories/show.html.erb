@@ -2,4 +2,5 @@ Categoria: <%= @category.name %> <br>
 Descrição: <%= @category.description %>
 
 <%= link_to 'Cadastrar Produto', new_product_category_product_path(@category.id) %>
+<%= link_to 'Editar', edit_product_category_path(@category.id) %>
 <%= link_to 'Voltar', product_categories_path %>

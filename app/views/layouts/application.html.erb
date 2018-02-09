@@ -3,18 +3,128 @@
   <head>
     <title>QsdProjetoFinalProdutos</title>
     <%= csrf_meta_tags %>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" type="text/css" href="//assets.locaweb.com.br/locastyle/3.10.1/stylesheets/locastyle.css">
+
   </head>
 
   <body>
-    <% if user_signed_in? %>
-    <%= link_to 'Sair' , destroy_user_session_path, method: :delete %>
-    <% end %>
+
+
+    <div class="ls-topbar">
+
+      <!-- Barra de Notificações -->
+      <div class="ls-notification-topbar">
+
+        <!-- Links de apoio -->
+        <div class="ls-alerts-list">
+          <a href="#" class="ls-ico-bell-o" data-counter="8" data-ls-module="topbarCurtain" data-target="#ls-notification-curtain"><span>Notificações</span></a>
+          <a href="#" class="ls-ico-bullhorn" data-ls-module="topbarCurtain" data-target="#ls-help-curtain"><span>Ajuda</span></a>
+          <a href="#" class="ls-ico-question" data-ls-module="topbarCurtain" data-target="#ls-feedback-curtain"><span>Sugestões</span></a>
+        </div>
+
+        <!-- Dropdown com detalhes da conta de usuário -->
+        <div data-ls-module="dropdown" class="ls-dropdown ls-user-account">
+          <a href="#" class="ls-ico-user">
+            <span class="ls-name">João</span>
+            (fmolina)
+          </a>
+          <nav class="ls-dropdown-nav ls-user-menu">
+            <ul>
+              <li><a href="#">Meus dados</a></li>
+              <li><a href="#">Faturas</a></li>
+              <li><a href="#">Planos</a></li>
+              <% if user_signed_in? %>
+                <li><a href='<%= link_to 'Sair' , destroy_user_session_path, method: :delete %>'>Sair</a></li>
+              <% end %>
+             </ul>
+          </nav>
+        </div>
+      </div>
+
+      <span class="ls-show-sidebar ls-ico-menu"></span>
+
+      <!-- Nome do produto/marca -->
+        <h1 class="ls-brand-name">
+          <a href="#" class="ls-ico-earth">
+            Nome do produto
+          </a>
+        </h1>
+    </div>
+
+    <main class="ls-main"></main>
+
+    <aside class="ls-notification">
+      <nav class="ls-notification-list" id="ls-notification-curtain">
+        <h3 class="ls-title-2">Notificações</h3>
+        <ul>
+            <li class="ls-dismissable">
+              <a href="#">Nam quo nisi voluptatem</a>
+              <a href="#" data-ls-module="dismiss" class="ls-ico-close ls-close-notification"></a>
+            </li>
+            <li class="ls-dismissable">
+              <a href="#">Porro aut dolorum ut tempore explicabo et non sit unde quas officiis ut</a>
+              <a href="#" data-ls-module="dismiss" class="ls-ico-close ls-close-notification"></a>
+            </li>
+            <li class="ls-dismissable">
+              <a href="#">Error odio explicabo et consequatur quasi sunt</a>
+              <a href="#" data-ls-module="dismiss" class="ls-ico-close ls-close-notification"></a>
+            </li>
+            <li class="ls-dismissable">
+              <a href="#">Ea et numquam dolor quasi qui</a>
+              <a href="#" data-ls-module="dismiss" class="ls-ico-close ls-close-notification"></a>
+            </li>
+            <li class="ls-dismissable">
+              <a href="#">Vitae temporibus tempore rerum est iure rerum</a>
+              <a href="#" data-ls-module="dismiss" class="ls-ico-close ls-close-notification"></a>
+            </li>
+        </ul>
+        <p class="ls-no-notification-message">Não há notificações.</p>
+      </nav>
+      <nav class="ls-notification-list" id="ls-help-curtain">
+        <h3 class="ls-title-2">Feedback</h3>
+        <ul>
+            <li><a href="#">> velit consectetur cum rerum dolores officiis</a></li>
+            <li><a href="#">> similique id at doloribus consequatur non</a></li>
+        </ul>
+      </nav>
+      <nav class="ls-notification-list" id="ls-feedback-curtain">
+        <h3 class="ls-title-2">Ajuda</h3>
+        <ul>
+          <li><a href="#">> Guia</a></li>
+          <li><a href="#">> Wiki</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <aside class="ls-sidebar">
+      <div data-ls-module="dropdown" class="ls-dropdown ls-user-account ls-active">
+        <a href="#" class="ls-ico-user">
+          <span class="ls-name">Franco Molina dos Santos Silva</span>
+          (fmolina)
+        </a>
+        <nav class="ls-dropdown-nav ls-user-menu" aria-hidden="true">
+          <ul>
+            <li><a href="#" role="option">Meus dados</a></li>
+            <li><a href="#" role="option">Faturas</a></li>
+            <li><a href="#" role="option">Planos</a></li>
+           </ul>
+           <% if user_signed_in? %>
+             <a href='<%= link_to 'Sair' , destroy_user_session_path, method: :delete %>' class="ls-btn-logout" role="combobox" aria-expanded="false">Sair</a>
+           <% end %>
+        </nav>
+      </div>
+      <h1 class="ls-brand-name ls-ico-earth"><a href="home">Nome do produto</a></h1>
+    </aside>
+
     <%= flash[:alert] %>
     <%= flash[:error] %>
     <%= flash[:notice] %>
     <%= yield %>
+
+
+<script src="//assets.locaweb.com.br/locastyle/3.10.1/javascripts/locastyle.js"></script>
   </body>
 </html>

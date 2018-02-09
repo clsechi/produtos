@@ -1,13 +1,2 @@
-<%= form_for @plan, url: product_product_plans_path do |f| %>
-<div>
- <%= f.label :name, 'Nome' %>
- <%= f.text_field :name %>
-</div>
-  <div>
-    <%= f.label :product_id, 'Produto' %>
-    <%= f.collection_select :product_id, @products, :id, :name  %>
-  </div>
-  <div>
-    <%= f.submit 'Enviar' %>
-  </div>
-<% end %>
+<h1>Cadastrar Plano</h1>
+<%= render partial: 'form', locals: {form_url: product_product_plans_path } %>

@@ -1,0 +1,5 @@
+Valor: <%= number_to_currency @price.value %> <br>
+Descrição: <%= @price.product_plan.name %>
+Periodicidade: <%= @price.periodicity.name %>
+
+<%= link_to 'Voltar', product_plan_path(@price.product_plan) %>

@@ -1,27 +1,2 @@
-<%= flash[:error] %>
-
-<%= form_for @product, url: product_category_products_path do |f| %>
-  <div>
-   <%= f.label :name, 'Nome' %>
-   <%= f.text_field :name %>
-  </div>
-  <div>
-    <%= f.label :description, 'Descrição Completa' %>
-    <%= f.text_area :description %>
-  </div>
-  <div>
-    <%= f.label :product_key, 'Chave do Produto' %>
-    <%= f.text_field :product_key %>
-  </div>
-  <div>
-    <%= f.label :contract, 'Contrato' %>
-    <%= f.text_area :contract %>
-  </div>
-  <div class="field">
-  <%= f.label :icon, 'Icone' %><br/>
-  <%= f.file_field :icon %>
-</div>
-  <div>
-    <%= f.submit 'Enviar' %>
-  </div>
-<% end %>
+<h1>Cadastrar Produto</h1>
+<%= render partial: 'form', locals: {form_url: product_category_products_path } %>
