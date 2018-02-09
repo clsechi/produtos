@@ -30,7 +30,7 @@ GET **/api/categories** (Retorna todas categorias)
 }
 ```
 
-GET **/api/categories/[:id_category]** (Retorna uma categoria específica)
+GET **/api/categories/[:category_id]** (Retorna uma categoria específica)
 >###### Sucesso
 > status 200 <br>
 ```json
@@ -57,7 +57,7 @@ GET  **/api/categories/:category_id/products** (Retorna todos os produtos de uma
 ```json
 {
    "categories":{
-      "id":1
+      "id":"1"
    },
    "products":[
       {
@@ -66,15 +66,17 @@ GET  **/api/categories/:category_id/products** (Retorna todos os produtos de uma
          "description":"Hospedagem ilimitada",
          "product_key":"HOSP123",
          "product_category_id":1,
-         "contract":"contrato123"
+         "contract":"contrato123",
+         "icon_url":"/system/products/icons/000/000/001/thumb/img.png?1518205431"
       },
       {
          "id":2,
-         "name":"Email",
-         "description":"Email",
-         "product_key":"MAIL123",
+         "name":"Hospedagem",
+         "description":"Hospedagem básica",
+         "product_key":"HOSP124",
          "product_category_id":1,
-         "contract":"contrato123"
+         "contract":"contrato124",
+         "icon_url":"/system/products/icons/000/000/002/thumb/img.png?1518205431"
       }
    ]
 }
@@ -187,7 +189,8 @@ GET **/api/products/:id** ( Retorna produto específico )
       "description":"Hospedagem ilimitada",
       "product_key":"HOSP123",
       "product_category_id":1,
-      "contract":"contrato123"
+      "contract":"contrato123",
+      "icon_url":"/system/products/icons/000/000/001/thumb/img.png?1518205865"
    }
 }
 ```
