@@ -153,7 +153,7 @@ GET **/api/categories** (Retorna todas categorias)
 }
 ```
 
-GET **/api/product_plans/:id** (Retorna uma categoria específica)
+GET **/api/product_plans/:id** (Retorna um plano específico)
 >###### Sucesso
 > status 200 <br>
 ```json
