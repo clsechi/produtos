@@ -5,5 +5,5 @@ Chave do produto: <%= @product.product_key %>
 Contrato: <%= @product.contract %>
 
 <%= link_to 'Cadastrar plano', new_product_product_plan_path(@product.id) %>
-
+<%= link_to 'Editar', edit_product_category_product_path(@product) %>
 <%= link_to 'Voltar', product_category_path(@product.product_category) %>

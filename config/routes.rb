@@ -6,10 +6,10 @@ Rails.application.routes.draw do
 
   resources :product_categories, only:[:index, :show, :new, :create, :edit,
                                        :update] do
-    resources :products, only:[:new, :create]
+    resources :products, only:[:new, :create, :edit, :update]
   end
 
-  resources :products, only:[:index, :show] do
+  resources :products, only:[:index, :show,] do
     resources :product_plans, only:[:new, :create]
   end
 
