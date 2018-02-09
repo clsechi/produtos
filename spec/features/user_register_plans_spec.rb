@@ -7,7 +7,8 @@ feature 'User register plan' do
     product = create(:product, product_category: category)
 
     login_as(user)
-    visit new_product_plan_path
+    visit new_product_product_plan_path(product)
+
     fill_in 'Nome', with: 'Hospedagem Ilimitada I'
     select product.name, from: 'Produto'
     click_on 'Enviar'
@@ -18,10 +19,11 @@ feature 'User register plan' do
   scenario 'and must fill all fields' do
     user = create(:user)
     category = create(:product_category)
-    create(:product, product_category: category)
+    product = create(:product, product_category: category)
 
     login_as(user)
-    visit new_product_plan_path
+    visit new_product_product_plan_path(product)
+
     fill_in 'Nome', with: ''
     select '', from: 'Produto'
     click_on 'Enviar'

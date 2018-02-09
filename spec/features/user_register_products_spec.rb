@@ -6,10 +6,12 @@ feature 'User register product' do
     category = create(:product_category)
 
     login_as(user)
-    visit new_product_path
+    visit root_path
+    click_on 'Categorias'
+    click_on category.name
+    click_on 'Cadastrar Produto'
     fill_in 'Nome', with: 'Hospedagem'
     fill_in 'Descrição Completa', with: 'Hospedagem ilimitada'
-    select category.name, from: 'Categoria'
     fill_in 'Chave do Produto', with: 'HOSP123'
     fill_in 'Contrato', with: 'contrato123'
     attach_file('Icone', 'spec/support/fixtures/hospedagem.png')
@@ -25,20 +27,20 @@ feature 'User register product' do
 
   scenario 'and must fill all fields' do
     user = create(:user)
-    create(:product_category)
+    category = create(:product_category)
 
     login_as(user)
-    visit new_product_path
+    visit new_product_category_product_path(category)
     fill_in 'Nome', with: ''
     fill_in 'Descrição Completa', with: ''
-    select '', from: 'Categoria'
     fill_in 'Chave do Produto', with: ''
     fill_in 'Contrato', with: ''
     click_on 'Enviar'
 
     expect(page).to have_content('Campos inválidos. Não pode ser nulo!')
   end
-  scenario 'see come back link in show' do
+
+  scenario 'see comeback link in show' do
     user = create(:user)
     category = create(:product_category)
     product = create(:product, product_category: category)
@@ -48,5 +50,21 @@ feature 'User register product' do
     click_on('Voltar')
 
     expect(current_path).to eq products_path
+  end
+
+  scenario 'and category id not exist' do
+    user = create(:user)
+    login_as(user)
+    not_found_category = 50
+    visit new_product_category_product_path(not_found_category)
+
+    fill_in 'Nome', with: 'Hospedagem'
+    fill_in 'Descrição Completa', with: 'Hospedagem ilimitada'
+    fill_in 'Chave do Produto', with: 'HOSP123'
+    fill_in 'Contrato', with: 'contrato123'
+    click_on 'Enviar'
+
+    expect(current_path).to eq root_path
+    expect(page).to have_content('Categoria não existe')
   end
 end
