@@ -4,4 +4,9 @@ class Product < ApplicationRecord
 
   validates :name, :description, :product_category_id, :contract,
             :product_key, presence: true
+
+  def actual_status
+    return 'Inativo' if status == false
+    'Ativo'
+  end
 end

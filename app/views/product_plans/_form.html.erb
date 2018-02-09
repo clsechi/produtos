@@ -5,7 +5,7 @@
   </div>
   <div>
     <%= f.label :status, 'Status' %>
-    <%= f.select(:status, [['Ativo'], ['Inativo']]) %>
+    <%= f.select(:status, [['Ativo', true], ['Inativo', false]]) %>
   </div>
   <div>
     <%= f.submit 'Enviar' %>
