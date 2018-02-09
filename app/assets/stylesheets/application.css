@@ -14,3 +14,8 @@
  *= require_self
  *= require locastyle
  */
+
+.padd{
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
