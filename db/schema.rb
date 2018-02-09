@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180209033104) do
+ActiveRecord::Schema.define(version: 20180209041158) do
 
   create_table "periodicities", force: :cascade do |t|
     t.string "name"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20180209033104) do
     t.datetime "updated_at", null: false
     t.integer "product_id"
     t.string "name"
+    t.string "status", default: "Ativo"
     t.index ["product_id"], name: "index_product_plans_on_product_id"
   end
 

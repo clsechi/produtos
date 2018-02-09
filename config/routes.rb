@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   end
 
   resources :products, only:[:index, :show,] do
-    resources :product_plans, only:[:new, :create]
+    resources :product_plans, only:[:new, :create, :edit, :update]
   end
 
   resources :product_plans, only:[:index, :show] do

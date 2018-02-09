@@ -21,6 +21,7 @@ feature 'User edit product' do
     expect(page).to have_content(category.name)
     expect(page).to have_content('HOSP123')
     expect(page).to have_content('contrato123')
+    expect(page).to have_content('Ativo')
   end
 
   scenario 'and must fill all fields' do
@@ -62,5 +63,6 @@ feature 'User edit product' do
     expect(page).to have_content(category.name)
     expect(page).to have_content('HOSP123')
     expect(page).to have_content('contrato123')
+    expect(page).to have_content('Inativo')
   end
 end

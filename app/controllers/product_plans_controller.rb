@@ -13,7 +13,7 @@ class ProductPlansController < ApplicationController
   def create
     @plan = @product.product_plans.new(plan_params)
     if @plan.save
-      render :show
+      redirect_to @plan
     else
       @products = Product.all
       flash.now[:error] = 'Campos inválidos. Não pode ser nulo!'
@@ -25,10 +25,25 @@ class ProductPlansController < ApplicationController
     @plan = ProductPlan.find(params[:id])
   end
 
+  def edit
+    @plan = ProductPlan.find(params[:id])
+  end
+
+  def update
+    @plan = ProductPlan.find(params[:id])
+    if @plan.update(plan_params)
+      redirect_to @plan
+    else
+      @products = Product.all
+      flash.now[:error] = 'Campos inválidos. Não pode ser nulo!'
+      render :new
+    end
+  end
+
   private
 
   def plan_params
-    params.require(:product_plan).permit(:name, :product_id)
+    params.require(:product_plan).permit(:name, :product_id, :status)
   end
 
   def set_product

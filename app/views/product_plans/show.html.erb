@@ -1,6 +1,7 @@
 Nome do plano: <%= @plan.name %>
 Produto: <%= @plan.product.name %>
+Status: <%= @plan.status %>
 
 <%= link_to 'Cadastrar preço', new_product_plan_plan_price_path(@plan) %>
-
+<%= link_to 'Editar', edit_product_product_plan_path(@plan) %>
 <%= link_to 'Voltar', product_path(@plan.product) %>
