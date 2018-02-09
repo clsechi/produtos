@@ -3,12 +3,10 @@ module Api
     def index
       prices = PlanPrice.where(product_plan_id: params[:product_plan_id])
       json = prices.as_json(except: [:created_at, :updated_at, :periodicity_id])
-      indice = 0
-      prices.each do |price|
+      prices.each_with_index do |price, index|
         periodicity = price.periodicity
-        json[indice]['periodicity'] = periodicity.as_json(except:
+        json[index]['periodicity'] = periodicity.as_json(except:
                                               [:created_at, :updated_at])
-        indice += 1
       end
       render json: { plans: params[:product_plan_id].to_i, prices: [json.last] }
     end
