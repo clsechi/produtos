@@ -12,6 +12,8 @@ pt-BR:
         email: Email
         password: Senha
         password_confirmation: Confirmar senha
+      product:
+        icon: "Icone"  
   buttons:
     sign_up: Registrar
     log_in: Entrar
