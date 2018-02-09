@@ -9,7 +9,6 @@ class Product < ApplicationRecord
                         ['image/jpeg', 'image/gif', 'image/png'] }
 
   def actual_status
-    return 'Inativo' if status == false
-    'Ativo'
+    status ? 'Ativo' : 'Inativo'
   end
 end

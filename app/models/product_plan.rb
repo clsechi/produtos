@@ -5,7 +5,6 @@ class ProductPlan < ApplicationRecord
   validates :product_id, :name, presence: true
 
   def actual_status
-    return 'Inativo' if status == false
-    'Ativo'
+    status ? 'Ativo' : 'Inativo'
   end
 end
