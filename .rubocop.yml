@@ -17,7 +17,6 @@ AllCops:
     - 'script/**/*'
     - 'spec/rails_helper.rb'
     - 'spec/spec_helper.rb'
-    - 'app/controllers/api/plan_prices_controller.rb'
     - '**/Gemfile'
   UseCache: false
 Metrics/BlockLength:

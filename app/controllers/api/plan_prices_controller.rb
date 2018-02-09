@@ -5,7 +5,7 @@ module Api
       json = prices.as_json(except: [:created_at, :updated_at, :periodicity_id])
       indice = 0
       prices.each do |price|
-        periodicity = Periodicity.find(price.periodicity_id)
+        periodicity = price.periodicity
         json[indice]['periodicity'] = periodicity.as_json(except:
                                               [:created_at, :updated_at])
         indice += 1
