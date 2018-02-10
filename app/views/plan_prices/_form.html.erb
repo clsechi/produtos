@@ -1,0 +1,17 @@
+<div class="ls-form row">
+  <%= form_for @price, url: form_url do |f| %>
+    <div class="ls-label">
+     <%= f.label :value, 'Valor', class: 'ls-label-text' %>
+     <%= f.text_field :value %>
+    </div>
+    <div class="ls-label">
+      <%= f.label :periodicity_id, 'Periodicidade', class: 'ls-label-text' %>
+      <div class="ls-custom-select">
+        <%= f.collection_select :periodicity_id, @periodicities, :id, :name  %>
+      </div>
+    </div>
+    <div>
+      <%= f.submit 'Enviar', class: 'ls-btn-primary ls-float-right' %>
+    </div>
+  <% end %>
+</div>

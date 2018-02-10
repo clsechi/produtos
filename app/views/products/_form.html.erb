@@ -1,29 +1,35 @@
-<%= form_for @product, url: form_url do |f| %>
-  <div>
-   <%= f.label :name, 'Nome' %>
-   <%= f.text_field :name %>
-  </div>
-  <div>
-    <%= f.label :description, 'Descrição Completa' %>
-    <%= f.text_area :description %>
-  </div>
-  <div>
-    <%= f.label :product_key, 'Chave do Produto' %>
-    <%= f.text_field :product_key %>
-  </div>
-  <div>
-    <%= f.label :contract, 'Contrato' %>
-    <%= f.text_area :contract %>
-  </div>
-  <div class="field">
-  <%= f.label :icon, 'Icone' %><br/>
-  <%= f.file_field :icon %>
-  </div>
-  <div>
-    <%= f.label :status, 'Status' %>
-    <%= f.select(:status, [['Ativo', true], ['Inativo', false]]) %>
-  </div>
-  <div>
-    <%= f.submit 'Enviar' %>
-  </div>
-<% end %>
+<div class="ls-form row">
+  <%= form_for @product, url: form_url do |f| %>
+    <div class="ls-label">
+     <%= f.label :name, 'Nome', class: 'ls-label-text' %>
+     <%= f.text_field :name %>
+    </div>
+    <div class="ls-label">
+      <%= f.label :description, 'Descrição Completa', class: 'ls-label-text' %>
+      <%= f.text_area :description %>
+    </div>
+    <div class="ls-label">
+      <%= f.label :product_key, 'Chave do Produto', class: 'ls-label-text' %>
+      <%= f.text_field :product_key %>
+    </div>
+    <div class="ls-label">
+      <%= f.label :contract, 'Contrato', class: 'ls-label-text' %>
+      <%= f.text_area :contract %>
+    </div>
+    <div class="ls-label">
+      <%= f.label :status, 'Status', class: 'ls-label-text' %>
+      <div class="ls-custom-select">
+        <%= f.select(:status, [['Ativo', true], ['Inativo', false]]) %>
+      </div>
+    </div>
+    <div class="ls-label">
+      <%= f.label :icon, 'Icone', class: 'ls-label-text' %><br/>
+      <div class="ls-custom-file-control  ">
+        <%= f.file_field :icon %>
+      </div>
+    </div>
+    <div>
+      <%= f.submit 'Enviar', class: 'ls-btn-primary ls-float-right' %>
+    </div>
+  <% end %>
+</div>

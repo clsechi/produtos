@@ -1,13 +1,4 @@
-<%= form_for @periodicity do |f| %>
-  <div>
-    <%= f.label :name, 'Nome' %>
-    <%= f.text_field :name %>
-  </div>
-  <div>
-    <%= f.label :period, 'Período' %>
-    <%= f.number_field :period %>
-  </div>
-  <div>
-    <%= f.submit 'Enviar' %>
-  </div>
-<% end %>
+<div class="container-fluid">
+  <h1 class="ls-title-intro ls-ico-chevron-right">Cadastrar Periodicidade</h1>
+  <%= render 'form' %>
+</div>

@@ -1,14 +1,12 @@
 <div class="ls-form row">
-  <%= form_for @plan, url: form_url do |f| %>
+  <%= form_for @periodicity do |f| %>
     <div class="ls-label">
      <%= f.label :name, 'Nome', class: 'ls-label-text' %>
      <%= f.text_field :name %>
     </div>
     <div class="ls-label">
-      <%= f.label :status, 'Status', class: 'ls-label-text' %>
-      <div class="ls-custom-select">
-        <%= f.select(:status, [['Ativo', true], ['Inativo', false]]) %>
-      </div>
+     <%= f.label :period, 'Período', class: 'ls-label-text' %>
+     <%= f.number_field :period %>
     </div>
     <div>
       <%= f.submit 'Enviar', class: 'ls-btn-primary ls-float-right' %>
