@@ -1,10 +1,6 @@
 class PlanPricesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_plan, only: [:create]
-  def index
-    @prices = PlanPrice.all
-    flash[:notice] = 'Não existe nenhum plano cadastrado' if @prices.empty?
-  end
 
   def new
     @price = PlanPrice.new
@@ -24,6 +20,9 @@ class PlanPricesController < ApplicationController
 
   def show
     @price = PlanPrice.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    flash[:error] = 'Não existe nenhum plano'
+    redirect_to root_path
   end
 
   private
@@ -35,12 +34,5 @@ class PlanPricesController < ApplicationController
 
   def set_plan
     @plan = ProductPlan.find(params[:product_plan_id])
-  rescue ActiveRecord::RecordNotFound
-    invalid_plan
-  end
-
-  def invalid_plan
-    flash[:error] = 'Plano não existe'
-    redirect_to root_path
   end
 end
