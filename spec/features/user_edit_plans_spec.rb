@@ -54,4 +54,15 @@ feature 'User edit plan' do
     expect(page).to have_content('Hospedagem Ilimitada II')
     expect(page).to have_content('Inativo')
   end
+  scenario 'and see nothing if plan to be blank' do
+    user = create(:user)
+    login_as(user)
+
+    visit new_product_product_plan_path(1)
+    fill_in 'Nome', with: 'Hospedagem Ilimitada II'
+    select 'Ativo', from: 'Status'
+    click_on 'Enviar'
+
+    expect(page).to have_content('Produto não existe')
+  end
 end

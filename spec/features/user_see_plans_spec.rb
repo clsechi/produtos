@@ -15,7 +15,6 @@ feature 'user can see plans' do
 
     expect(page).to have_content(plan.name)
     expect(page).to have_content(plan.product.name)
-    # expect(page).to have_content(plan.plan_price.value)
   end
 
   scenario 'and see nothing if plans table to be blank' do
@@ -45,9 +44,7 @@ feature 'user can see plans' do
 
     expect(page).to have_content(plan.name)
     expect(page).to have_content(plan.product.name)
-    # expect(page).to have_content(plan.plan_price.value)
     expect(page).to have_content(another_plan.name)
     expect(page).to have_content(another_plan.product.name)
-    # expect(page).to have_content(another_plan.plan_price.value)
   end
 end
