@@ -1,29 +1,56 @@
-<h2>Inscreva-se</h2>
+<div class="ls-login-parent">
+  <div class="ls-login-inner">
+    <div class="ls-login-container">
+      <div class="ls-login-box">
+        <h1 class="ls-login-logo"><img title="Logo Cadastro" src="app/assets/images/locastyle/logo-locaweb.png" /></h1>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
+        <fieldset>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          <label class="ls-label">
+            <%= f.label :email %>
+            <div class="ls-prefix-group ls-field-lg">
+              <a class="ls-label-text-prefix ls-toggle-pass ls-ico-user-add" data-target="#email_field" href="#"></a>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'Email', class: "ls-login-bg-user ls-field-lg" %>
+            </div>
+          </label>
+
+          <label class="ls-label">
+            <%= f.label :password %>
+            <% if @minimum_password_length %>
+            <em>(Mínimo <%= @minimum_password_length %> caracteres)</em>
+            <% end %><br />
+            <div class="ls-prefix-group ls-field-lg">
+              <%= f.password_field :password, autocomplete: "off", placeholder: "Senha", class: "ls-login-bg-password" %>
+              <a class="ls-label-text-prefix ls-toggle-pass ls-ico-eye" data-toggle-class="ls-ico-eye, ls-ico-eye-blocked" data-target="#password_field" href="#"></a>
+            </div>
+          </label>
+
+          <label class="ls-label">
+            <%= f.label :password_confirmation %>
+            <div class="ls-prefix-group ls-field-lg">
+              <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirme sua Senha", class: "ls-login-bg-password" %>
+              <a class="ls-label-text-prefix ls-toggle-pass ls-ico-thumbs-up"></a>
+            </div>
+          </label>
+
+          <% if devise_mapping.rememberable? -%>
+            <div class="field">
+              <p class="ls-login-forgot">
+                <%= f.check_box :remember_me %>
+                <%= f.label :remember_me %>
+              </p>
+            </div>
+          <% end -%>
+
+          <div class="actions">
+            <%= f.submit t('buttons.sign_up'), class: "ls-btn-primary ls-btn-block ls-btn-lg"%>
+          </div>
+          <% end %>
+        </fieldset>
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit t('buttons.sign_up') %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

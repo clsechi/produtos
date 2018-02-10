@@ -1,3 +1,42 @@
+<div class="ls-login-parent">
+  <div class="ls-login-inner">
+    <div class="ls-login-container">
+      <div class="ls-login-box">
+        <h1 class="ls-login-logo"><img title="Logo esqueci minha senha" src="app/assets/images/locastyle/logo-locaweb.png" /></h1>
+
+        <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+        <%= devise_error_messages! %>
+        <fieldset>
+
+          <label class="ls-label">
+            <%= f.label :email %>
+            <div class="ls-prefix-group ls-field-lg">
+              <a class="ls-label-text-prefix ls-toggle-pass ls-ico-user" data-target="#email_field" href="#"></a>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'Email', class: "ls-login-bg-user ls-field-lg" %>
+            </div>
+          </label>
+
+          <div class="actions">
+            <%= f.submit 'Enviar instruções por email', class: "ls-btn-primary ls-btn-block ls-btn-lg"%>
+          </div>
+          <% end %>
+        </fieldset>
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
 <h2>Forgot your password?</h2>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
