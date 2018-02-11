@@ -14,7 +14,7 @@ feature 'User register product' do
     fill_in 'Descrição Completa', with: 'Hospedagem ilimitada'
     fill_in 'Chave do Produto', with: 'HOSP123'
     fill_in 'Contrato', with: 'contrato123'
-    attach_file('Icone', 'spec/support/fixtures/img.png')
+    attach_file('Ícone', 'spec/support/fixtures/img.png')
     click_on 'Enviar'
 
     expect(page).to have_css("img[src*='img.png']")

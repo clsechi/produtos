@@ -17,5 +17,12 @@
 
 .padd{
 	padding-top: 15px;
-	padding-bottom: 15px;
+}
+
+.description p{
+	font-size: 15px;
+}
+
+.description .title{
+	font-weight: bold
 }

@@ -1,10 +1,18 @@
 <div class="container-fluid">
-  <h1 class="ls-title-intro ls-ico-chevron-right"><%= @price.product_plan.name %></h1>
+  <h1 class="ls-title-intro ls-ico-chevron-right">Preços</h1>
 
   <%= link_to 'Voltar', product_plan_path(@price.product_plan), class: 'ls-ico-chevron-left ls-btn-primary' %>
 
-  <h2 class="padd">Periodicidade: <%= @price.periodicity.name %></h2>
+  <div class="ls-box ls-board-box">
+    <div class="description">
+      <p class="title">Plano:</p>
+      <p><%= @price.product_plan.name %></p>
 
-  <h2 class="padd">Valor: <%= number_to_currency @price.value %></h2>
+      <p class="padd title">Periodicidade:</p>
+      <p><%= @price.periodicity.name %></p>
 
+      <p class="padd title">Valor:</p>
+      <p><%= number_to_currency @price.value %></p>
+    </div>
+  </div>  
 </div>

@@ -1,12 +1,47 @@
 <div class="container-fluid">
-  <h1 class="ls-title-intro ls-ico-chevron-right"><%= @plan.name %></h1>
+  <h1 class="ls-title-intro ls-ico-chevron-right">Planos</h1>
 
   <%= link_to ' Voltar', product_path(@plan.product), class: 'ls-ico-chevron-left ls-btn-primary' %>
   <%= link_to ' Editar', edit_product_product_plan_path(@plan), class: 'ls-ico-pencil2 ls-btn-primary' %>
   <%= link_to ' Cadastrar preço', new_product_plan_plan_price_path(@plan), class: 'ls-ico-plus ls-btn-primary' %>
 
-  <h2 class="padd">Produto: <%= link_to @plan.product.name, product_path(@plan.product) %></h2>
+  <div class="ls-box ls-board-box">
+    <div class="description">
+      <p class="padd title">Nome:</p>
+      <p><%= @plan.name %></p>
 
-  <h2 class="padd">Status: <%= @plan.actual_status %></h2>
+      <p class="padd title">Produto:</p>
+      <p><%= link_to @plan.product.name, product_path(@plan.product) %></p>
 
+      <p class="padd title">Status:</p>
+      <p><%= @plan.actual_status %></p>
+
+      <% if @plan.plan_prices.blank? %>
+        <p class="padd title">Preço Atual:</p>
+        <p>Nenhum preço cadastrado para esse plano</p>
+      <% else %>
+        <p class="padd title">Preço Atual:</p>
+        <p><%= number_to_currency @plan.plan_prices.last.value %></p>
+
+        <p class="padd title">Histórico de Preços:</p> 
+
+        <table class="ls-table ls-table-striped ls-txt-center">
+          <thead>
+            <tr>
+              <th>Preço</th>
+              <th>Data</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @plan.plan_prices.each do |price| %>
+            <tr>
+              <td><%= number_to_currency price.value %> </td>
+              <td><%= I18n.l price.created_at, format: :short %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>        
+      <% end %>
+    </div>
+  </div>
 </div>
