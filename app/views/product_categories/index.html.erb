@@ -1,8 +1,24 @@
+<div class="container-fluid">
 
-<%= link_to 'Cadastrar categoria', new_product_category_path %>
+  <h1 class="ls-title-intro">Categorias</h1>
 
-<% @categories.each do |category| %>
-  <%= link_to category.name, product_category_path(category) %>
-  <%= category.description %>
-  <br>
-<% end %>
+  <%= link_to 'Cadastrar categoria', new_product_category_path, class: 'ls-btn-primary ls-btn-lg ls-btn-block' %>  
+
+  <table class="ls-table">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Descrição</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @categories.each do |category| %>
+      <tr>
+        <td><%= link_to category.name, product_category_path(category) %></td>
+        <td><%= category.description %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  
+</div>

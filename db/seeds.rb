@@ -14,13 +14,9 @@ description: 'Hospedagem ilimitada')
 category2 = ProductCategory.create(name: 'Cloud e Servidores',
 description: 'Soluções de computação na nuvem')
 
-<<<<<<< HEAD
-plan = ProductPlan.create(name: 'Hospedagem', product_id: product.id)
-=======
 product1 = Product.create(name: 'Hospedagem de Sites', product_key: 'HOSP123',
 description: 'Sites ilimitados', contract: 'contrato_hosp_123',
 product_category_id: category1.id)
->>>>>>> origin/master
 
 product2 = Product.create(name: 'Registro de Domínio', product_key: 'HOSP321',
 description: 'Registre ou transfira o seu domínio', contract: 'contrato_hosp_321',
@@ -29,6 +25,8 @@ product_category_id: category1.id)
 product3 = Product.create(name: 'Cloud Computing', product_key: 'CC89',
 description: 'Hospedagemem cloud com recursos exclusivos', contract: 'contrato_cc_89',
 product_category_id: category2.id)
+
+plan = ProductPlan.create(name: 'Hospedagem', product_id: product1.id)
 
 plan1 = ProductPlan.create(name: 'Hospedagem I', product_id: product1.id)
 plan2 = ProductPlan.create(name: 'Hospedagem II', product_id: product1.id)

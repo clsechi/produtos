@@ -33,6 +33,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 # use gem paperclip
 gem "paperclip", "~> 5.2.1"
+# use locastyle
+gem 'locastyle'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger

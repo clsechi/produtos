@@ -1,6 +1,30 @@
-Categoria: <%= @category.name %> <br>
-Descrição: <%= @category.description %>
+<div class="container-fluid">
+  <h1 class="ls-title-intro ls-ico-chevron-right"><%= @category.name %></h1>
 
-<%= link_to 'Cadastrar Produto', new_product_category_product_path(@category.id) %>
-<%= link_to 'Editar', edit_product_category_path(@category.id) %>
-<%= link_to 'Voltar', product_categories_path %>
+  <%= link_to ' Voltar', product_categories_path, class: 'ls-ico-chevron-left ls-btn-primary' %>
+  <%= link_to ' Editar', edit_product_category_path(@category.id), class: 'ls-ico-pencil2 ls-btn-primary' %>
+  <%= link_to ' Cadastrar Produto', new_product_category_product_path(@category.id), class: 'ls-ico-plus ls-btn-primary' %>
+
+  <h2 class="padd">Descrição: <%= @category.description %></h2>
+
+  <h2 class="padd">Produtos dessa categoria:</h2>
+
+  <table class="ls-table">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Status</th>
+        <th>Descrição</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @category.products.each do |product| %>
+      <tr>
+        <td><%= link_to product.name, product_path(product) %></td>
+        <td><%= product.actual_status %></td>
+        <td><%= product.description %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
