@@ -1,0 +1,23 @@
+<div class="ls-box ls-board-box">
+  <div class="ls-form">
+    <%= form_for @price, url: form_url do |f| %>
+      <label class="ls-label">
+        <%= f.label :value, 'Valor', class: 'ls-label-text' %>
+        <div class="ls-prefix-group ls-field-lg">
+          <span class="ls-label-text-prefix">R$</span>
+          <%= f.text_field :value, autofocus: true, class: 'ls-field-lg' %>
+        </div>
+      </label>
+      <div class="ls-label">
+        <%= f.label :periodicity_id, 'Periodicidade', class: 'ls-label-text' %>
+        <div class="ls-custom-select">
+          <%= f.collection_select :periodicity_id, @periodicities, :id, :name  %>
+        </div>
+      </div>
+      <div>
+        <%= f.submit 'Enviar', class: 'ls-btn-primary' %>
+        <%= link_to 'Cancelar', product_plans_path, class: 'ls-btn' %>
+      </div>
+    <% end %>
+  </div>
+</div>

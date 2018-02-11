@@ -19,7 +19,7 @@ feature 'User register all data' do
     fill_in 'Descrição Completa', with: 'Hospedagem ilimitada'
     fill_in 'Chave do Produto', with: 'HOSP123'
     fill_in 'Contrato', with: 'contrato123'
-    attach_file('Icone', 'spec/support/fixtures/img.png')
+    attach_file('Ícone', 'spec/support/fixtures/img.png')
     click_on 'Enviar'
 
     click_on 'Cadastrar plano'

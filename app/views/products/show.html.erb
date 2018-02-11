@@ -1,11 +1,32 @@
-Produto: <%= @product.name %> <br>
-Descrição: <%= @product.description %>
-Categoria: <%= @product.product_category.name %>
-Chave do produto: <%= @product.product_key %>
-Contrato: <%= @product.contract %>
-Status: <%= @product.actual_status %>
-<td><%= image_tag(@product.icon.url(:thumb)) %></td>
+<div class="container-fluid">
+  <h1 class="ls-title-intro ls-ico-chevron-right">
+    Produtos
+  </h1>
 
-<%= link_to 'Cadastrar plano', new_product_product_plan_path(@product.id) %>
-<%= link_to 'Editar', edit_product_category_product_path(@product) %>
-<%= link_to 'Voltar', product_category_path(@product.product_category) %>
+  <%= link_to 'Voltar', product_category_path(@product.product_category), class: 'ls-ico-chevron-left ls-btn-primary' %>
+  <%= link_to 'Editar', edit_product_category_product_path(@product), class: 'ls-ico-pencil2 ls-btn-primary' %>
+  <%= link_to 'Cadastrar plano', new_product_product_plan_path(@product.id), class: 'ls-ico-plus ls-btn-primary' %>
+
+  <div class="ls-box ls-board-box description">
+    <p class="title">Nome:</p>
+    <p><%= @product.name %></p>
+
+    <p class="padd title">Ícone</p>
+    <p><%= image_tag(@product.icon.url(:thumb), alt: 'Ícone') %></p>
+
+    <p class="padd title">Status:</p>
+    <p><%= @product.actual_status %></p>
+
+    <p class="padd title">Descrição:</p>
+    <p><%= @product.description %></p>
+
+    <p class="padd title">Categoria:</p>
+    <p><%= link_to @product.product_category.name, product_category_path(@product.product_category), class: 'ls-theme-gold' %></p>
+
+    <p class="padd title">Chave do produto:</p>
+    <p><%= @product.product_key %></p>
+
+    <p class="padd title">Contrato:</p>
+    <p><%= @product.contract %></p>   
+  </div>  
+</div>

@@ -1,6 +1,30 @@
-<% @products.each do |product| %>
-  <%= product.name %>
-  <%= product.description %>
-  <%= product.product_key %>
-  <%= product.product_category.name %>
-<% end %>
+<div class="container-fluid">
+
+  <h1 class="ls-title-intro">Produtos</h1>
+
+
+  <table class="ls-table">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Descrição</th>
+        <th>Chave do produto</th>
+        <th>Categoria do produto</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @products.each do |product| %>
+      <tr>
+        <td><%= link_to product.name, product_path(product) %></td>
+        <td><%= product.description %></td>
+        <td><%= product.product_key %></td>
+        <td><%= link_to product.product_category.name,
+         product_category_path(product.product_category) %></td>
+        <td><%= product.actual_status %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+</div>

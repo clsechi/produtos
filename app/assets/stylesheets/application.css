@@ -12,4 +12,17 @@
  *
  *= require_tree .
  *= require_self
+ *= require locastyle
  */
+
+.padd{
+	padding-top: 15px;
+}
+
+.description p{
+	font-size: 15px;
+}
+
+.description .title{
+	font-weight: bold
+}
