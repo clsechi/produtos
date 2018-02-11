@@ -14,15 +14,11 @@ class PeriodicitiesController < ApplicationController
   def create
     @periodicity = Periodicity.new(periodicity_params)
     if @periodicity.save
-      render :show
+      redirect_to periodicities_path
     else
       flash.now[:error] = 'Campos inválidos. Não pode ser nulo!'
       render :new
     end
-  end
-
-  def show
-    @periodicity = Periodicity.find(params[:id])
   end
 
   private

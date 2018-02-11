@@ -27,14 +27,4 @@ feature 'User register periodicity' do
 
     expect(page).to have_content('Campos inválidos. Não pode ser nulo!')
   end
-  scenario 'see come back link in show' do
-    periodicity = create(:periodicity)
-    user = create(:user)
-    login_as(user)
-
-    visit periodicity_path periodicity
-    click_on('Voltar')
-
-    expect(current_path).to eq periodicities_path
-  end
 end

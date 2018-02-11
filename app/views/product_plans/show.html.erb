@@ -1,7 +1,12 @@
-Nome do plano: <%= @plan.name %>
-Produto: <%= @plan.product.name %>
-Status: <%= @plan.actual_status %>
+<div class="container-fluid">
+  <h1 class="ls-title-intro ls-ico-chevron-right"><%= @plan.name %></h1>
 
-<%= link_to 'Cadastrar preço', new_product_plan_plan_price_path(@plan) %>
-<%= link_to 'Editar', edit_product_product_plan_path(@plan) %>
-<%= link_to 'Voltar', product_path(@plan.product) %>
+  <%= link_to ' Voltar', product_path(@plan.product), class: 'ls-ico-chevron-left ls-btn-primary' %>
+  <%= link_to ' Editar', edit_product_product_plan_path(@plan), class: 'ls-ico-pencil2 ls-btn-primary' %>
+  <%= link_to ' Cadastrar Preço', new_product_plan_plan_price_path(@plan), class: 'ls-ico-plus ls-btn-primary' %>
+
+  <h2 class="padd">Produto: <%= link_to @plan.product.name, product_path(@plan.product) %></h2>
+
+  <h2 class="padd">Status: <%= @plan.actual_status %></h2>
+
+</div>
