@@ -25,6 +25,6 @@ feature 'User register periodicity' do
     fill_in 'Período', with: ''
     click_on 'Enviar'
 
-    expect(page).to have_content('Campos inválidos. Não pode ser nulo!')
+    expect(page).to have_content('Campos inválidos.')
   end
 end
