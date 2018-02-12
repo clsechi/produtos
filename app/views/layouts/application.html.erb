@@ -50,19 +50,19 @@
 
   <main class="ls-main">
     <% if flash[:notice] %>
-      <div class="ls-alert-success ls-dismissable" role="alert"">
+      <div class="ls-alert-success ls-dismissable" role="alert">
         <span data-ls-module="dismiss" class="ls-dismiss">×</span>
         <%= flash[:notice] %>
       </div>
     <% end %>
     <% if flash[:alert] %>
-      <div class="ls-alert-warning ls-dismissable" role="alert"">
+      <div class="ls-alert-warning ls-dismissable" role="alert">
         <span data-ls-module="dismiss" class="ls-dismiss">×</span>
         <%= flash[:alert] %>
       </div>
     <% end %>
     <% if flash[:error] %>
-      <div class="ls-alert-danger ls-dismissable" role="alert"">
+      <div class="ls-alert-danger ls-dismissable" role="alert">
         <span data-ls-module="dismiss" class="ls-dismiss">×</span>
         <%= flash[:error] %>
       </div>
@@ -73,19 +73,19 @@
   </main>
 
   <!-- side panel -->
+  <% if user_signed_in? %>
   <aside class="ls-sidebar">
     <div class="ls-sidebar-inner">
       <nav class="ls-menu">
         <ul>
+          <li><a href=<%= periodicities_path %> class="ls-ico-week">Periodicidades</a></li>
           <li><a href=<%= product_categories_path %> class="ls-ico-multibuckets">Categorias</a></li>
           <li><a href=<%= products_path %> class="ls-ico-domain">Produtos</a></li>
           <li><a href=<%= product_plans_path %> class="ls-ico-docs">Planos</a></li>
-          <li><a href=<%= periodicities_path %> class="ls-ico-week">Periodicidades</a></li>
         </ul>
       </nav>
     </div>
   </aside>
-
-
+  <% end %>
 </body>
 </html>
