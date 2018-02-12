@@ -8,13 +8,12 @@ class ProductPlan < ApplicationRecord
     status ? 'Ativo' : 'Inativo'
   end
 
-  def last_prices   
+  def last_prices
     prices = []
-    Periodicity.all.each do |per|
-      price = PlanPrice.where(['periodicity_id = ? and product_plan_id = ?', per.id, self.id]).last
-      unless price.nil?
-        prices << price
-      end
+    Periodicity.all.find_each do |per|
+      price = PlanPrice.where(['periodicity_id = ? and product_plan_id = ?',
+                               per.id, id]).last
+      prices << price unless price.nil?
     end
     prices
   end
