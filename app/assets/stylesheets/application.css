@@ -26,3 +26,7 @@
 .description .title{
 	font-weight: bold
 }
+
+.ls-dismissable{
+	margin-bottom: 0px;
+}
