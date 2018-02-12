@@ -5,8 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-periodicity1 = Periodicity.create(name: 'Anual', period: 12)
-periodicity2 = Periodicity.create(name: 'Mensal', period: 1)
+periodicity1 = Periodicity.create(name: 'Mensal', period: 1)
+periodicity2 = Periodicity.create(name: 'Trimestral', period: 3)
+periodicity3 = Periodicity.create(name: 'Semestral', period: 6)
+periodicity4 = Periodicity.create(name: 'Anual', period: 12)
 
 category1 = ProductCategory.create(name: 'Hospedagem',
 description: 'Hospedagem ilimitada')

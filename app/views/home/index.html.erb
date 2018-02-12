@@ -1,12 +1,60 @@
 <div class="container-fluid">
-  <h1 class="ls-title-intro ls-ico-home">Página inicial</h1>
-  <div>
-    <h1>CARD</h1>
-    <p>Categoria</p>
-    <p>Produto</p>
-    <p>Planos</p>
-    <p>Plano 1</p>
-    <p>Plano 2</p>
-    <p>Preços X Periodicidades</p>
+  <h1 class="ls-title-intro ls-ico-dashboard">Dashboard</h1>
+
+  <div class="ls-box ls-board-box">
+    <header class="ls-info-header">
+      <p class="ls-float-right ls-float-none-xs ls-small-info">Atualizado em <strong><%= I18n.l Time.now, format: :short %></strong></p>
+      <h2 class="ls-title-3">Informações Gerais</h2>
+    </header>
+
+    <div id="sending-stats" class="row">
+      <div class="col-sm-6 col-md-3">
+        <div class="ls-box">
+          <div class="ls-box-head">
+            <h6 class="ls-title-4">Categorias</h6>
+          </div>
+          <div class="ls-box-body">
+            <span class="ls-board-data">
+              <strong><%= @categories %> </strong>
+            </span>
+          </div>
+          <div class="ls-box-footer">
+            <a href=<%= product_categories_path %> class="ls-btn ls-btn-xs">Detalhes</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-md-3">
+        <div class="ls-box">
+          <div class="ls-box-head">
+            <h6 class="ls-title-4">Produtos</h6>
+          </div>
+          <div class="ls-box-body">
+            <span class="ls-board-data">
+              <strong><%= @products %></strong>
+            </span>
+          </div>
+          <div class="ls-box-footer">
+            <a href= <%= products_path %> class="ls-btn ls-btn-xs">Detalhes</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-md-3">
+        <div class="ls-box">
+          <div class="ls-box-head">
+            <h6 class="ls-title-4">Planos</h6>
+          </div>
+          <div class="ls-box-body">
+            <span class="ls-board-data">
+              <strong><%= @plans %></strong>
+            </span>
+          </div>
+            <div class="ls-box-footer">
+              <a href=<%= product_plans_path %> class="ls-btn ls-btn-xs">Detalhes</a>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
   </div>
-</div>
