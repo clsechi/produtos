@@ -1,2 +1,5 @@
-<h1>Cadastrar Produto</h1>
-<%= render partial: 'form', locals: {form_url: product_category_products_path } %>
+<div class="container-fluid">
+  <h1 class="ls-title-intro ls-ico-chevron-right">Cadastrar Produto</h1>
+  <%= render partial: 'form',
+      locals: {form_url: product_category_products_path, page: 'new' } %>
+</div>

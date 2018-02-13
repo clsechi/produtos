@@ -1,13 +1,5 @@
-<%= form_for @price, url: product_plan_plan_prices_path do |f| %>
-  <div>
-    <%= f.label :value, 'Valor' %>
-    <%= f.number_field :value %>
-  </div>
-  <div>
-    <%= f.label :periodicity_id, 'Periodicidade' %>
-    <%= f.collection_select :periodicity_id, @periodicities, :id, :name  %>
-  </div>
-  <div>
-    <%= f.submit 'Enviar' %>
-  </div>
-<% end %>
+<div class="container-fluid">
+  <h1 class="ls-title-intro ls-ico-chevron-right">Cadastrar preço</h1>
+  <%= render partial: 'form',
+      locals: {form_url: product_plan_plan_prices_path } %>
+</div>

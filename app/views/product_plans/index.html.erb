@@ -1,4 +1,22 @@
-<% @plans.each do |plan| %>
-  <%= link_to plan.name, product_plan_path(plan) %>
-  <%= plan.product.name %>
-<%end%>
+<div class="container-fluid">
+
+  <h1 class="ls-title-intro">Planos</h1>
+
+  <table class="ls-table">
+    <thead>
+      <tr>
+        <th>Nome do plano</th>
+        <th>Nome do produto</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @plans.each do |plan| %>
+      <tr>
+        <td><%= link_to plan.name, product_plan_path(plan) %></td>
+        <td><%= link_to plan.product.name, product_path(plan.product) %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+</div>

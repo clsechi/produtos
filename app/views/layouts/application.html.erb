@@ -41,26 +41,29 @@
 
     <!-- Nome do produto/marca -->
     <h1 class="ls-brand-name">
-      <a href="#" class="ls-ico-earth">
-        Locaweb Produtos
+      <a href=<%= root_path %> class="ls-ico-earth">
+        <small>Locaweb</small>
+        Produtos
       </a>
     </h1>
   </div>
 
   <main class="ls-main">
-
     <% if flash[:notice] %>
-      <div class="ls-alert-success" role="alert"">
+      <div class="ls-alert-success ls-dismissable" role="alert"">
+        <span data-ls-module="dismiss" class="ls-dismiss">×</span>
         <%= flash[:notice] %>
       </div>
     <% end %>
     <% if flash[:alert] %>
-      <div class="ls-alert-warning" role="alert"">
+      <div class="ls-alert-warning ls-dismissable" role="alert"">
+        <span data-ls-module="dismiss" class="ls-dismiss">×</span>
         <%= flash[:alert] %>
       </div>
     <% end %>
     <% if flash[:error] %>
-      <div class="ls-alert-danger" role="alert"">
+      <div class="ls-alert-danger ls-dismissable" role="alert"">
+        <span data-ls-module="dismiss" class="ls-dismiss">×</span>
         <%= flash[:error] %>
       </div>
     <% end %>
@@ -74,10 +77,10 @@
     <div class="ls-sidebar-inner">
       <nav class="ls-menu">
         <ul>
-          <li><a href=<%= product_categories_path %> class="ls-ico-folder">Categorias</a></li>
-          <li><a href=<%= products_path %> class="ls-ico-folder">Produtos</a></li>
-          <li><a href=<%= product_plans_path %> class="ls-ico-folder">Planos</a></li>
-          <li><a href=<%= periodicities_path %> class="ls-ico-folder">Periodicidades</a></li>
+          <li><a href=<%= product_categories_path %> class="ls-ico-multibuckets">Categorias</a></li>
+          <li><a href=<%= products_path %> class="ls-ico-domain">Produtos</a></li>
+          <li><a href=<%= product_plans_path %> class="ls-ico-docs">Planos</a></li>
+          <li><a href=<%= periodicities_path %> class="ls-ico-week">Periodicidades</a></li>
         </ul>
       </nav>
     </div>

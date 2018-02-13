@@ -1,7 +1,23 @@
-<% @periodicities.each do |p| %>
+<div class="container-fluid">
 
-<span>Nome:<%= p.name %></span>
-<span>Período:<%= p.period %></span>
-<% end %>
+  <h1 class="ls-title-intro">Periodicidade</h1>
 
-<%= link_to 'Cadastrar periodicidade', new_periodicity_path %>
+  <%= link_to 'Cadastrar periodicidade', new_periodicity_path, class: 'ls-btn-primary ls-btn-lg ls-btn-block' %>
+
+  <table class="ls-table">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Periodo(mesês)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @periodicities.each do |periodicity| %>
+      <tr>
+        <td><%= periodicity.name %></td>
+        <td><%= periodicity.period %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

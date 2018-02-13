@@ -1,13 +1,24 @@
-<%= form_for @plan, url: form_url do |f| %>
-  <div>
-   <%= f.label :name, 'Nome' %>
-   <%= f.text_field :name %>
+<div class="ls-box ls-board-box">
+  <div class="ls-form">
+    <%= form_for @plan, url: form_url do |f| %>
+      <div class="ls-label">
+       <%= f.label :name, 'Nome', class: 'ls-label-text' %>
+       <%= f.text_field :name, autofocus: true %>
+      </div>
+      <div class="ls-label">
+        <%= f.label :status, 'Status', class: 'ls-label-text' %>
+        <div class="ls-custom-select">
+          <%= f.select(:status, [['Ativo', true], ['Inativo', false]]) %>
+        </div>
+      </div>
+      <div>
+        <%= f.submit 'Enviar', class: 'ls-btn-primary' %>
+        <% if page == 'new' %>
+        <%= link_to 'Cancelar', product_categories_path, class: 'ls-btn'  %>
+        <% else %>
+        <%= link_to 'Cancelar', product_category_path(@category), class: 'ls-btn'  %>
+        <% end %>
+      </div>
+    <% end %>
   </div>
-  <div>
-    <%= f.label :status, 'Status' %>
-    <%= f.select(:status, [['Ativo', true], ['Inativo', false]]) %>
-  </div>
-  <div>
-    <%= f.submit 'Enviar' %>
-  </div>
-<% end %>
+</div>

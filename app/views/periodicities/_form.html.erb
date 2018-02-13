@@ -1,0 +1,18 @@
+<div class="ls-box ls-board-box">
+  <div class="ls-form">
+    <%= form_for @periodicity do |f| %>
+    <div class="ls-label">
+      <%= f.label :name, 'Nome', class: 'ls-label-text' %>
+      <%= f.text_field :name, autofocus: true %>
+    </div>
+    <div class="ls-label">
+      <%= f.label :period, 'Período', class: 'ls-label-text' %>
+      <%= f.number_field :period %>
+    </div>
+    <div>
+      <%= f.submit 'Enviar', class: 'ls-btn-primary' %>
+      <%= link_to 'Cancelar', periodicities_path, class: 'ls-btn' %>
+    </div>
+    <% end %>
+  </div>
+</div>

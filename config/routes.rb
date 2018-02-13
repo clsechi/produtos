@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'home#index'
 
-  resources :periodicities, only: [:index, :new, :create, :show]
+  resources :periodicities, only: [:index, :new, :create]
 
   resources :product_categories, only:[:index, :show, :new, :create, :edit,
                                        :update] do
