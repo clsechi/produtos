@@ -35,7 +35,9 @@ gem 'jbuilder', '~> 2.5'
 gem "paperclip", "~> 5.2.1"
 # use locastyle
 gem 'locastyle'
-# use gem jquery
+# use devise
+gem 'devise'
+# use gem jquery'
 gem 'jquery-rails'
 
 group :development, :test do
@@ -47,7 +49,6 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'rubocop', require: false
   gem 'simplecov', require: false
-  gem 'devise'
 end
 
 group :development do

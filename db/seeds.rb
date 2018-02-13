@@ -53,4 +53,4 @@ PlanPrice.create(value: 45.78, product_plan_id: plan3.id,
 PlanPrice.create(value: 89.78, product_plan_id: plan4.id,
                periodicity_id: periodicity2.id)
 
-user = User.create(email: 'teste@email.com', password: '123456')
+user = User.create(email: 'user@email.com', password: '123456')

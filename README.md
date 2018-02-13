@@ -1,5 +1,56 @@
 # README
 
+# Gerenciamento de Produtos
+
+Este é o terceiro projeto que fizemos na Campus Code.
+
+Trata-se de uma representação minimalista de um sistema de gerenciamento de produtos e suas dependências.
+
+O sistema está dividido em duas partes, interface com o usuário e uma API que interage com outras aplicações externas.
+
+Na interface do usuário, o mesmo é capaz de cadastrar categorias, produtos e planos com seus devidos preços e suas periodicidades.
+
+Já a API é responsável por enviar dados no formato JSON do conteúdo cadastrado no banco de dados.
+
+Inicialização:
+Para iniciar a aplicação basta utilizar o comando bin/setup via terminal.
+
+Gems usadas em produção
+  - LocaStyle       (CSS)
+  - Devise          (Autenticação)
+  - Paperclip       (Upload de imagens)
+  - Jquery          (Gerenciamento dinâmico de DOM)
+
+Gems usadas para testes
+  - Rspec Rails         (TDD)
+  - Capybara            (TDD)
+  - Simplecov           (Cobertura de testes)
+  - Rubocop             (Boas práticas no código)
+  - Factory Bot Rails   (Otimização de código)
+
+Para o projeto, o time utilizou o trello como referência e organização de forma que cada história individualmente gerasse valor ao projeto.   
+https://trello.com/b/xjccfS5P/time-produtos-qsd
+
+Usuário
+  - Email - user@email.com
+  - Senha - 123456
+
+TEAM
+
+Carlos Sechi
+https://github.com/clsechi
+
+Davi Carvalho
+https://github.com/davicfg
+
+Italo Almeida
+https://github.com/italoalmeida89
+
+Luiz Gustavo Venarusso
+https://github.com/LuizVenarusso
+
+Thiago Morais
+https://github.com/thiagolmorais
 
 # API
 
