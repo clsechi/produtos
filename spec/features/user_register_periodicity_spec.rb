@@ -25,6 +25,7 @@ feature 'User register periodicity' do
     fill_in 'Período', with: ''
     click_on 'Enviar'
 
-    expect(page).to have_content('Campos inválidos.')
+    expect(page).to have_content('Nome não pode ficar em branco')
+    expect(page).to have_content('Período não pode ficar em branco')
   end
 end

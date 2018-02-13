@@ -26,7 +26,7 @@ feature 'User register plan' do
     fill_in 'Nome', with: ''
     click_on 'Enviar'
 
-    expect(page).to have_content('Campos inválidos. Não pode ser nulo!')
+    expect(page).to have_content('Nome não pode ficar em branco')
   end
   scenario 'see comeback link in show' do
     user = create(:user)

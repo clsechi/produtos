@@ -27,6 +27,6 @@
 	font-weight: bold
 }
 
-.ls-dismissable{
-	margin-bottom: 0px;
+.remove-margin{
+	margin-bottom: 0px !important;
 }

@@ -13,7 +13,23 @@ pt-BR:
         password: Senha
         password_confirmation: Confirmar senha
       product:
-        icon: "Icone"  
+        icon: Icone
+        name: Nome
+        description: Descrição
+        contract: Contrato
+        product_key: Chave do produto
+      product_plan:
+        name: Nome
+        product_id: ID do produto
+      product_category:
+        name: Nome
+        description: Descrição
+      plan_price:
+        value: Valor
+        periodicity_id: Periodicidade
+      periodicity:
+        name: Nome
+        period: Período
   buttons:
     sign_up: Registrar
     log_in: Entrar
