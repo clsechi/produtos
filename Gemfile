@@ -35,6 +35,8 @@ gem 'jbuilder', '~> 2.5'
 gem "paperclip", "~> 5.2.1"
 # use locastyle
 gem 'locastyle'
+# use devise
+gem 'devise'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger
@@ -45,7 +47,6 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'rubocop', require: false
   gem 'simplecov', require: false
-  gem 'devise'
 end
 
 group :development do
