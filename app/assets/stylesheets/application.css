@@ -26,3 +26,7 @@
 .description .title{
 	font-weight: bold
 }
+
+.remove-margin{
+	margin-bottom: 0px !important;
+}

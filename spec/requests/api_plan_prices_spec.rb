@@ -38,20 +38,22 @@ describe 'Prices API', type: :request do
       another_price = create(:plan_price, product_plan: plan, value: 50,
                                           periodicity: another_periodicity)
 
-      get price_api_product_plan_path(plan)
+      get api_product_plan_plan_prices_path(plan)
       data = JSON.parse(response.body)
 
       expect(response.status).to eq 200
-      expect(data[0]['product_plan_id']).to eq(plan.id)
-      expect(data[0]['periodicity_id']).to eq(periodicity.id)
-      expect(data[0]['value']).to eq(price.value.to_s)
-      expect(data[1]['periodicity_id']).to eq(another_periodicity.id)
-      expect(data[1]['value']).to eq(another_price.value.to_s)
+      expect(data['plans']).to eq(plan.id)
+      expect(data['prices'][0]['value']).to eq(price.value.to_s)
+      expect(data['prices'][0]['periodicity']['id']).to eq(periodicity.id)
+      expect(data['prices'][1]['value']).to eq(another_price.value.to_s)
+      expect(
+        data['prices'][1]['periodicity']['id']
+      ).to eq(another_periodicity.id)
     end
 
-    it 'response 404 to empty plan price' do
-      params = { id: 3 }
-      get price_api_product_plan_path(params)
+    it 'response 404 to wrong plan price' do
+      params = { product_plan_id: 3 }
+      get api_product_plan_plan_prices_path(params)
 
       expect(response.status).to eq 404
     end

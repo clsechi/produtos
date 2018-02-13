@@ -1,4 +1,13 @@
 <div class="ls-box ls-board-box">
+  <% if @price.errors.any? %>
+    <div class="ls-alert-danger ls-dismissable" role="alert">
+      <span data-ls-module="dismiss" class="ls-dismiss">×</span>
+      <% @price.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </div>
+    <br>
+  <% end %>
   <div class="ls-form">
     <%= form_for @price, url: form_url do |f| %>
       <label class="ls-label">

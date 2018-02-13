@@ -8,14 +8,13 @@ class PlanPricesController < ApplicationController
   end
 
   def create
-    new_price_params = price_params[:value].gsub(',','.')
+    new_price_params = price_params[:value].tr(',', '.')
     @price = @plan.plan_prices.new(price_params)
     @price.value = new_price_params
     if @price.save
       redirect_to @price
     else
       @periodicities = Periodicity.all
-      flash.now[:error] = 'Campos inválidos. Não pode ser nulo!'
       render :new
     end
   end

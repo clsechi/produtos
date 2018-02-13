@@ -34,7 +34,7 @@ feature 'User edit plan' do
     select 'Inativo', from: 'Status'
     click_on 'Enviar'
 
-    expect(page).to have_content('Campos inválidos. Não pode ser nulo!')
+    expect(page).to have_content('Nome não pode ficar em branco')
   end
 
   scenario 'with status inactive' do

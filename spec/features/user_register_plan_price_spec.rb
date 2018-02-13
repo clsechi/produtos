@@ -34,7 +34,7 @@ feature 'User register plan price' do
     select '', from: 'Periodicidade'
     click_on 'Enviar'
 
-    expect(page).to have_content('Campos inválidos. Não pode ser nulo!')
+    expect(page).to have_content('Valor não pode ficar em branco')
   end
 
   scenario 'see come back link in show' do

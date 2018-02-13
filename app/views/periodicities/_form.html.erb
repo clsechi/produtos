@@ -1,13 +1,22 @@
 <div class="ls-box ls-board-box">
+  <% if @periodicity.errors.any? %>
+    <div class="ls-alert-danger ls-dismissable" role="alert">
+      <span data-ls-module="dismiss" class="ls-dismiss">×</span>
+      <% @periodicity.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </div>
+    <br>
+  <% end %>
   <div class="ls-form">
     <%= form_for @periodicity do |f| %>
     <div class="ls-label">
       <%= f.label :name, 'Nome', class: 'ls-label-text' %>
       <%= f.text_field :name, autofocus: true %>
     </div>
-    <div class="ls-label">
+    <div class="ls-label" >
       <%= f.label :period, 'Período', class: 'ls-label-text' %>
-      <%= f.number_field :period %>
+      <%= f.number_field :period, min: '1' , max: '12' %>
     </div>
     <div>
       <%= f.submit 'Enviar', class: 'ls-btn-primary' %>

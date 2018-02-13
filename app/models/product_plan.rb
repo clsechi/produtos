@@ -7,4 +7,14 @@ class ProductPlan < ApplicationRecord
   def actual_status
     status ? 'Ativo' : 'Inativo'
   end
+
+  def last_prices
+    prices = []
+    Periodicity.all.find_each do |per|
+      price = PlanPrice.where(['periodicity_id = ? and product_plan_id = ?',
+                               per.id, id]).last
+      prices << price unless price.nil?
+    end
+    prices
+  end
 end

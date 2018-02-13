@@ -1,4 +1,13 @@
 <div class="ls-box ls-board-box">
+  <% if @plan.errors.any? %>
+    <div class="ls-alert-danger ls-dismissable" role="alert">
+      <span data-ls-module="dismiss" class="ls-dismiss">×</span>
+      <% @plan.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </div>
+    <br>
+  <% end %>
   <div class="ls-form">
     <%= form_for @plan, url: form_url do |f| %>
       <div class="ls-label">
