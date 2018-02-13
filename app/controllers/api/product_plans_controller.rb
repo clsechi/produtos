@@ -6,12 +6,6 @@ module Api
       render json: { products: { id: params[:product_id] }, plans: json }
     end
 
-    def price
-      price = PlanPrice.where(product_plan_id: params[:id])
-      return render json: price unless price.empty?
-      render json: { message: 'Nenhum preço encontrado' }, status: 404
-    end
-
     def show
       product_plan = ProductPlan.find(params[:id])
       json = product_plan.as_json(except: [:created_at, :updated_at])
