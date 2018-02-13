@@ -30,6 +30,7 @@
     <p><%= @product.contract %></p>
 
     <hr>
+    <% if @plans.any? %>
     <h3 class="padd">Planos desse produto:</h3>
     <table class="ls-table">
       <thead>
@@ -47,5 +48,8 @@
         <% end %>
       </tbody>
     </table>
+    <% else %>
+    <p class="padd title">Nenhum plano cadastrado</p>
+    <% end %>
   </div>
 </div>

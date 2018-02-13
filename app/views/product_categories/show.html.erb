@@ -5,16 +5,17 @@
   <%= link_to ' Editar', edit_product_category_path(@category.id), class: 'ls-ico-pencil2 ls-btn-primary' %>
   <%= link_to ' Cadastrar Produto', new_product_category_product_path(@category.id), class: 'ls-ico-plus ls-btn-primary' %>
 
-  <div class="ls-box ls-board-box">
+  <div class="ls-box ls-board-box description">
     <div class="description">
       <p class="title">Nome:</p>
       <p><%= @category.name %></p>
 
       <p class="padd title">Descrição:</p>
-      <p><%= @category.description %></p>    
+      <p><%= @category.description %></p>
     </div>
     <hr>
-    <h3 class="padd">Produtos dessa categoria:</h3>  
+    <% if @category.products.any? %>
+    <h3 class="padd">Produtos dessa categoria:</h3>
     <table class="ls-table">
       <thead>
         <tr>
@@ -33,5 +34,8 @@
         <% end %>
       </tbody>
     </table>
-  </div>  
+    <% else %>
+    <p class="padd title">Nenhum produto cadastrado</p>
+    <% end %>
+  </div>
 </div>
