@@ -14,8 +14,8 @@
       <p><%= @category.description %></p>
     </div>
     <hr>
-    <% if @category.products.any? %>
     <h3 class="padd">Produtos dessa categoria:</h3>
+    <% if @category.products.any? %>
     <table class="ls-table">
       <thead>
         <tr>
@@ -35,7 +35,7 @@
       </tbody>
     </table>
     <% else %>
-    <p class="padd title">Nenhum produto cadastrado</p>
+    <p class="padd">Nenhum produto cadastrado</p>
     <% end %>
   </div>
 </div>
