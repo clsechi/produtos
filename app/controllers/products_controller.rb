@@ -23,6 +23,7 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    @plans = ProductPlan.where(product_id: params[:id])
   end
 
   def edit

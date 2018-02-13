@@ -5,7 +5,7 @@
         <%= f.label :value, 'Valor', class: 'ls-label-text' %>
         <div class="ls-prefix-group ls-field-lg">
           <span class="ls-label-text-prefix">R$</span>
-          <%= f.text_field :value, autofocus: true, class: 'ls-field-lg' %>
+          <%= f.text_field :value, autofocus: true, pattern: '[0-9]+(,[0-9]+)*,?' , class: 'ls-field-lg' %>
         </div>
       </label>
       <div class="ls-label">

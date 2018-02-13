@@ -16,7 +16,7 @@ class PeriodicitiesController < ApplicationController
     if @periodicity.save
       redirect_to periodicities_path
     else
-      flash.now[:error] = 'Campos inválidos. Não pode ser nulo!'
+      flash.now[:error] = 'Campos inválidos.'
       render :new
     end
   end

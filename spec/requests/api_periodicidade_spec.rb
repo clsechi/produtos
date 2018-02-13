@@ -22,7 +22,7 @@ describe 'Periodicities - ', type: :request do
     end
     it 'show two periodicity' do
       periodicity = create(:periodicity)
-      periodicity2 = create(:periodicity, name: 'Anual', period: 12)
+      periodicity2 = create(:periodicity, name: 'Mensal', period: 1)
 
       get api_periodicities_path
       data = JSON.parse(response.body)

@@ -29,12 +29,6 @@ Rails.application.routes.draw do
     resources :product_plans, only: [:index, :show] do
       resources :plan_prices, only: [:index]
     end
-    resources :periodicities, only:[:index]
-
-    resources :product_plans, only:[:index, :show] do
-      member do
-        get 'price', to: 'product_plans#price'
-      end
-    end
+    resources :periodicities, only: [:index]
   end
 end

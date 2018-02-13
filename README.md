@@ -54,7 +54,7 @@ GET **/api/categories/[:category_id]** ( Retorna uma categoria específica )
 ```
 ## Produtos
 
-GET  **/api/categories/:category_id/products** ( Retorna todos os produtos de uma categoria )
+GET  **/api/categories/[:category_id]/products** ( Retorna todos os produtos de uma categoria )
 >###### Sucesso
 > status 200 <br>
 ```json
@@ -124,7 +124,57 @@ GET **/api/products/:id** ( Retorna um produto específico )
 ```
 ## Planos
 
-GET **/api/products/[:id_product]/plans** (Retorna todos os planos de um produto)
+GET **/api/products/[:product_id]/product_plans** (Retorna todos os planos de um produto)
+>###### Sucesso
+> status 200 <br>
+```json
+{
+   "products":{
+      "id":"1"
+   },
+   "plans":[
+      {
+         "id":1,
+         "product_id":1,
+         "name":"Hospedagem Ilimitada I",
+         "status":true
+      },
+      {
+         "id":2,
+         "product_id":1,
+         "name":"Hospedagem Ilimitada I",
+         "status":false
+      }
+   ]
+}
+```
+
+
+GET **/api/product_plans/:id** ( Retorna um plano específico )
+>###### Sucesso
+> status 200 <br>
+```json
+{
+   "plans":{
+      "id":1,
+      "product_id":1,
+      "name":"Hospedagem Ilimitada I"
+      "status":"true"
+   }
+}
+```
+
+>###### Falha
+> status 404 <br>
+```json
+{
+   "message":"Nenhum plano encontrado"
+}
+```
+
+## Preços e Periodicidades dos Planos
+
+GET **/api/product_plans/[:product_plan_id]/plan_prices** (Retorna todos os planos de um produto)
 
 >###### Sucesso
 > status 200 <br>
@@ -159,31 +209,9 @@ GET **/api/products/[:id_product]/plans** (Retorna todos os planos de um produto
 > status 404 <br>
 ```json
 {
-   "plans":{
-      "id":1
-   },
+   "plans": 1,
    "prices":[
    ]
 }
 ```
 
-GET **/api/product_plans/:id** ( Retorna um plano específico )
->###### Sucesso
-> status 200 <br>
-```json
-{
-   "plans":{
-      "id":1,
-      "product_id":1,
-      "name":"Hospedagem Ilimitada I"
-   }
-}
-```
-
->###### Falha
-> status 404 <br>
-```json
-{
-   "message":"Nenhum plano encontrado"
-}
-```

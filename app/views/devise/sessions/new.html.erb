@@ -2,7 +2,6 @@
   <div class="ls-login-inner">
     <div class="ls-login-container">
       <div class="ls-login-box">
-        <h1 class="ls-login-logo"><img title="Logo login" src="app/assets/images/locastyle/logo-locaweb.png" /></h1>
 
         <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: "ls-form ls-login-form") do |f| %>
         <fieldset>
@@ -38,7 +37,6 @@
           </div>
           <% end %>
         </fieldset>
-        <%= render "devise/shared/links" %>
       </div>
     </div>
   </div>

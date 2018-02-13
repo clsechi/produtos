@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <h1 class="ls-title-intro ls-ico-chevron-right">Categorias</h1>
+  <h1 class="ls-title-intro ls-ico-multibuckets">Categorias</h1>
 
   <%= link_to ' Voltar', product_categories_path, class: 'ls-ico-chevron-left ls-btn-primary' %>
   <%= link_to ' Editar', edit_product_category_path(@category.id), class: 'ls-ico-pencil2 ls-btn-primary' %>
@@ -11,10 +11,10 @@
       <p><%= @category.name %></p>
 
       <p class="padd title">Descrição:</p>
-      <p><%= @category.description %></p>
-
-      <p class="padd title">Produtos dessa categoria:</p>      
+      <p><%= @category.description %></p>    
     </div>
+    <hr>
+    <h3 class="padd">Produtos dessa categoria:</h3>  
     <table class="ls-table">
       <thead>
         <tr>
