@@ -31,6 +31,7 @@ feature 'User edit category' do
     fill_in 'Descrição', with: ''
     click_on 'Enviar'
 
-    expect(page).to have_content('Campos inválidos. Não pode ser nulo!')
+    expect(page).to have_content('Nome não pode ficar em branco')
+    expect(page).to have_content('Descrição não pode ficar em branco')
   end
 end

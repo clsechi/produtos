@@ -1,4 +1,13 @@
 <div class="ls-box ls-board-box" >
+  <% if @category.errors.any? %>
+    <div class="ls-alert-danger ls-dismissable" role="alert">
+      <span data-ls-module="dismiss" class="ls-dismiss">×</span>
+      <% @category.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </div>
+    <br>
+  <% end %>
   <div class="ls-form">
     <%= form_for @category do |f| %>
       <div class="ls-label">

@@ -15,7 +15,6 @@ class PlanPricesController < ApplicationController
       redirect_to @price
     else
       @periodicities = Periodicity.all
-      flash.now[:error] = 'Campos inválidos. Não pode ser nulo!'
       render :new
     end
   end
