@@ -64,7 +64,7 @@ describe 'Plan - ', type: :request do
       category = create(:product_category)
       product = create(:product, product_category: category)
       active_plan = create(:product_plan, product: product)
-      inative_plan = create(:product_plan, product: product, status: false)
+      create(:product_plan, product: product, status: false)
 
       get api_product_product_plans_path(product)
       data = JSON.parse(response.body)

@@ -1,7 +1,8 @@
 module Api
   class ProductPlansController < ApplicationController
     def index
-      product_plans = ProductPlan.where("product_id = ? AND status = ?",params[:product_id],true)
+      product_plans = ProductPlan.where('product_id = ? AND status = ?',
+                                        params[:product_id], true)
       json = product_plans.as_json(except: [:created_at, :updated_at])
       render json: { products: { id: params[:product_id] }, plans: json }
     end
