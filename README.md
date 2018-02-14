@@ -31,26 +31,45 @@ Gems usadas para testes
 Para o projeto, o time utilizou o trello como referência e organização de forma que cada história individualmente gerasse valor ao projeto.   
 https://trello.com/b/xjccfS5P/time-produtos-qsd
 
-Usuário
+
+## Instalação
+
+Faça o download ou clone o código fonte do projeto:
+```
+git clone http://vps1474.publiccloud.com.br/qsd18/produtos.git
+```
+Para inicializar a aplicação, dentro do diretório,  execute no terminal:
+```
+bin/setup
+```
+### Configuração
+Foi criado um arquivo de configuração  **/config/products.yml.sample**.
+Arquivo de configuração da porta onde será executada a aplicação.
+
+```
+Configuração padrão:
+http://localhost:3001
+```
+Este arquivo deverá ser ser copiado e removido a extesão **.sample**.
+```
+/config/products.yml
+```
+### Login
+  Por padrão é criado um usuário para acessar a aplicação
   - Email - user@email.com
   - Senha - 123456
 
-TEAM
+#### TEAM
 
-Carlos Sechi
-https://github.com/clsechi
+[Carlos Sechi](https://github.com/clsechi)
 
-Davi Carvalho
-https://github.com/davicfg
+[Davi Carvalho](https://github.com/davicfg)
 
-Italo Almeida
-https://github.com/italoalmeida89
+[Italo Almeida](https://github.com/italoalmeida89)
 
-Luiz Gustavo Venarusso
-https://github.com/LuizVenarusso
+[Luiz Gustavo Venarusso](https://github.com/LuizVenarusso)
 
-Thiago Morais
-https://github.com/thiagolmorais
+[Thiago Morais](https://github.com/thiagolmorais)
 
 # API
 
@@ -121,7 +140,7 @@ GET  **/api/categories/[:category_id]/products** ( Retorna todos os produtos de 
          "product_key":"HOSP123",
          "product_category_id":1,
          "contract":"contrato123",
-         "icon_url":"/system/products/icons/000/000/001/thumb/img.png?1518205431"
+        "icon_url":"http://localhost:3001/system/products/icons/000/000/001/thumb.png?1518627073"
       },
       {
          "id":2,
@@ -130,7 +149,7 @@ GET  **/api/categories/[:category_id]/products** ( Retorna todos os produtos de 
          "product_key":"HOSP124",
          "product_category_id":1,
          "contract":"contrato124",
-         "icon_url":"/system/products/icons/000/000/002/thumb/img.png?1518205431"
+         "icon_url":"http://localhost:3001/system/products/icons/000/000/001/thumb.png?1518627073"
       }
    ]
 }
@@ -161,7 +180,7 @@ GET **/api/products/:id** ( Retorna um produto específico )
       "product_key":"HOSP123",
       "product_category_id":1,
       "contract":"contrato123",
-      "icon_url":"/system/products/icons/000/000/001/thumb/img.png?1518205865"
+      "icon_url":"http://localhost:3001/system/products/icons/000/000/001/thumb.png?1518627073"
    }
 }
 ```
@@ -189,12 +208,6 @@ GET **/api/products/[:product_id]/product_plans** (Retorna todos os planos de um
          "product_id":1,
          "name":"Hospedagem Ilimitada I",
          "status":true
-      },
-      {
-         "id":2,
-         "product_id":1,
-         "name":"Hospedagem Ilimitada I",
-         "status":false
       }
    ]
 }
@@ -265,4 +278,3 @@ GET **/api/product_plans/[:product_plan_id]/plan_prices** (Retorna todos os plan
    ]
 }
 ```
-
