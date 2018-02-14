@@ -6,6 +6,11 @@ Rails.application.configure do
   # since you don't have to restart the web server when you make code changes.
   config.cache_classes = false
 
+  config.paperclip_defaults = {
+    url: "#{Rails.configuration.products['products_url']}/system/:class/:attachment/:id_partition/:style.:extension",
+    path: ':rails_root/public/system/:class/:attachment/:id_partition/:style.:extension',
+  }
+
   # Do not eager load code on boot.
   config.eager_load = false
 

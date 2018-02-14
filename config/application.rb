@@ -25,6 +25,8 @@ module QsdProjetoFinalProdutos
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
+    config.products = config_for(:products)
+
     config.i18n.default_locale = :'pt-BR'
 
     # Don't generate system test files.

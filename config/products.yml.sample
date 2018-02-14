@@ -1,0 +1,6 @@
+production:
+  products_url: http://localhost:3001
+development:
+  products_url: http://localhost:3001
+test:
+  products_url: http://localhost:3001
