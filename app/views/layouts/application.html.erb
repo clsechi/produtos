@@ -7,14 +7,11 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!-- full reload all pages -->
+  <meta name="turbolinks-visit-control" content="reload">
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-  <link rel="stylesheet" type="text/css" href="//assets.locaweb.com.br/locastyle/3.10.1/stylesheets/locastyle.css">
-
-  <script src="//assets.locaweb.com.br/locastyle/3.10.1/javascripts/locastyle.js"></script>
 
 </head>
 
@@ -50,42 +47,41 @@
 
   <main class="ls-main">
     <% if flash[:notice] %>
-      <div class="ls-alert-success ls-dismissable" role="alert"">
+      <div class="ls-alert-success ls-dismissable remove-margin" role="alert">
         <span data-ls-module="dismiss" class="ls-dismiss">×</span>
         <%= flash[:notice] %>
       </div>
     <% end %>
     <% if flash[:alert] %>
-      <div class="ls-alert-warning ls-dismissable" role="alert"">
+      <div class="ls-alert-warning ls-dismissable remove-margin" role="alert">
         <span data-ls-module="dismiss" class="ls-dismiss">×</span>
         <%= flash[:alert] %>
       </div>
     <% end %>
     <% if flash[:error] %>
-      <div class="ls-alert-danger ls-dismissable" role="alert"">
+      <div class="ls-alert-danger ls-dismissable remove-margin" role="alert">
         <span data-ls-module="dismiss" class="ls-dismiss">×</span>
         <%= flash[:error] %>
       </div>
     <% end %>
 
     <%= yield %>
-
   </main>
 
   <!-- side panel -->
   <aside class="ls-sidebar">
     <div class="ls-sidebar-inner">
       <nav class="ls-menu">
+        <% if user_signed_in? %>
         <ul>
-          <li><a href=<%= product_categories_path %> class="ls-ico-multibuckets">Categorias</a></li>
+          <li><a href=<%= periodicities_path %> class="ls-ico-week">Periodicidades</a></li>
+          <li><a href=<%= product_categories_path %> class="ls-ico-bukets">Categorias</a></li>
           <li><a href=<%= products_path %> class="ls-ico-domain">Produtos</a></li>
           <li><a href=<%= product_plans_path %> class="ls-ico-docs">Planos</a></li>
-          <li><a href=<%= periodicities_path %> class="ls-ico-week">Periodicidades</a></li>
         </ul>
+        <% end %>
       </nav>
     </div>
   </aside>
-
-
 </body>
 </html>

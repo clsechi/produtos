@@ -16,7 +16,6 @@ class ProductPlansController < ApplicationController
       redirect_to @plan
     else
       @products = Product.all
-      flash.now[:error] = 'Campos inválidos. Não pode ser nulo!'
       render :new
     end
   end
@@ -35,7 +34,6 @@ class ProductPlansController < ApplicationController
       redirect_to @plan
     else
       @products = Product.all
-      flash.now[:error] = 'Campos inválidos. Não pode ser nulo!'
       render :new
     end
   end

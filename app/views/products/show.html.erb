@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <h1 class="ls-title-intro ls-ico-chevron-right">
+  <h1 class="ls-title-intro ls-ico-domain">
     Produtos
   </h1>
 
@@ -27,6 +27,29 @@
     <p><%= @product.product_key %></p>
 
     <p class="padd title">Contrato:</p>
-    <p><%= @product.contract %></p>   
-  </div>  
+    <p><%= @product.contract %></p>
+
+    <hr>
+    <h3 class="padd">Planos desse produto:</h3>
+    <% if @plans.any? %>
+    <table class="ls-table">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @plans.each do |plan| %>
+        <tr>
+          <td><%= link_to plan.name, product_plan_path(plan) %></td>
+          <td><%= plan.actual_status %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <% else %>
+    <p class="padd">Nenhum plano cadastrado</p>
+    <% end %>
+  </div>
 </div>

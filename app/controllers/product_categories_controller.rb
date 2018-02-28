@@ -15,7 +15,6 @@ class ProductCategoriesController < ApplicationController
     if @category.save
       redirect_to @category
     else
-      flash.now[:error] = 'Campos inválidos. Não pode ser nulo!'
       render :new
     end
   end
@@ -33,7 +32,6 @@ class ProductCategoriesController < ApplicationController
     if @category.update(category_params)
       redirect_to @category
     else
-      flash.now[:error] = 'Campos inválidos. Não pode ser nulo!'
       render :new
     end
   end

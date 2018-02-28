@@ -24,3 +24,5 @@
 coverage
 
 /public/system
+
+/config/products.yml

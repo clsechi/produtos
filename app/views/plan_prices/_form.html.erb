@@ -1,11 +1,20 @@
 <div class="ls-box ls-board-box">
+  <% if @price.errors.any? %>
+    <div class="ls-alert-danger ls-dismissable" role="alert">
+      <span data-ls-module="dismiss" class="ls-dismiss">×</span>
+      <% @price.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </div>
+    <br>
+  <% end %>
   <div class="ls-form">
     <%= form_for @price, url: form_url do |f| %>
       <label class="ls-label">
         <%= f.label :value, 'Valor', class: 'ls-label-text' %>
         <div class="ls-prefix-group ls-field-lg">
           <span class="ls-label-text-prefix">R$</span>
-          <%= f.text_field :value, autofocus: true, class: 'ls-field-lg' %>
+          <%= f.text_field :value, autofocus: true, pattern: '[0-9]+(,[0-9]+)*,?' , class: 'ls-field-lg' %>
         </div>
       </label>
       <div class="ls-label">

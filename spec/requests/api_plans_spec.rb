@@ -59,5 +59,21 @@ describe 'Plan - ', type: :request do
       expect(data['plans'][1]['product_id']).to eq(another_plan.product_id)
       expect(data['plans'][1]['name']).to eq(another_plan.name)
     end
+
+    it 'and do not see a inative plan' do
+      category = create(:product_category)
+      product = create(:product, product_category: category)
+      active_plan = create(:product_plan, product: product)
+      create(:product_plan, product: product, status: false)
+
+      get api_product_product_plans_path(product)
+      data = JSON.parse(response.body)
+
+      expect(data['plans'][0]['product_id']).to eq(active_plan.product_id)
+      expect(data['plans'][0]['name']).to eq(active_plan.name)
+      expect(data['plans'][0]['status']).to eq(active_plan.status)
+
+      expect(data['plans'][1]).to eq(nil)
+    end
   end
 end

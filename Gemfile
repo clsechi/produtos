@@ -35,6 +35,10 @@ gem 'jbuilder', '~> 2.5'
 gem "paperclip", "~> 5.2.1"
 # use locastyle
 gem 'locastyle'
+# use devise
+gem 'devise'
+# use gem jquery'
+gem 'jquery-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger
@@ -45,10 +49,10 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'rubocop', require: false
   gem 'simplecov', require: false
-  gem 'devise'
 end
 
 group :development do
+  gem 'irbtools', require: 'irbtools/binding'
   # Access an IRB console on exception pages or by using <%= console %> anywhere
   # in the code.
   gem 'web-console', '>= 3.3.0'

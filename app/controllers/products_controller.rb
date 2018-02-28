@@ -16,13 +16,13 @@ class ProductsController < ApplicationController
       redirect_to @product
     else
       @categories = ProductCategory.all
-      flash.now[:error] = 'Campos inválidos. Não pode ser nulo!'
       render :new
     end
   end
 
   def show
     @product = Product.find(params[:id])
+    @plans = ProductPlan.where(product_id: params[:id])
   end
 
   def edit
@@ -35,7 +35,6 @@ class ProductsController < ApplicationController
       redirect_to @product
     else
       @categories = ProductCategory.all
-      flash.now[:error] = 'Campos inválidos. Não pode ser nulo!'
       render :new
     end
   end
